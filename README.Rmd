@@ -1,0 +1,75 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(tidyverse)
+
+```
+
+# CopyCat <img src="man/figures/sticker.png" align="right" width="250/"/>
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+CopyCat is a simple package to handle your own code snippets in R. Save your code snippets as a data frame, CopyCat searches your data base and copies the code to the clipboard. 
+
+## Installation
+
+Install CopyCat from my github account with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("edgar-treischl/CopyCat")
+```
+
+## Example
+
+This is a basic example to show you how CopyCat searches within a data frame for the code snippet you are looking for. For illustration purposes, CopyCat comes with a tiny data set and some basic code snippets.
+
+```{r example}
+## load library and provide a data frame 
+library(copycat)
+df <- copycat::df
+head(df)
+```
+
+Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. A code snippet is saved in `copycat::df` and `copycat_code` just returns the code snippet.
+
+```{r}
+## returns a code snippet
+copycat_code("pivot_longer", df)
+```
+
+To work with your code snippets, `copy_that` saves the code to your clipboard.
+
+```{r, eval=FALSE}
+# saves the returned code to the clipboad
+copy_that("pivot_longer", df)
+#> [1] "You are ready to paste!"
+```
+
+If the code is based on implemented data -- as the example here -- you can see how it works by pasting it into your console.
+
+```{r}
+relig_income %>% 
+  pivot_longer(!religion, names_to = 'income', values_to = 'count')
+```
+
+Ultimately, `copycat_package` returns the name of package in case you cannot remember the name of the package anymore.
+
+```{r}
+#search for a package name 
+copycat_package("pivot_longer", df)
+```
+

@@ -1,0 +1,56 @@
+---
+title: "Copy Cat Minimal Example"
+output: 
+  html_document:
+    theme:
+      bootswatch: flatly
+params: 
+  z: default
+  y: default
+  data: default
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, class.source='klippy')
+library(klippy)
+#library(tidyr)
+
+#x <- params$pkg
+#y <- params$y
+#data <- params$data
+```
+
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy(position = c('top', 'right'), 
+               tooltip_message = 'Click to copy', 
+               tooltip_success = 'Yeah!',
+               color = 'darkblue')
+```
+
+
+
+### Here is your minimal example:
+
+The following package has been (installed) loaded:
+
+```{r, echo=FALSE, warning=FALSE}
+copycat_requires(params$z)
+
+```
+
+An example code:
+
+
+```{r, echo=FALSE}
+params$y
+```
+
+
+### The result
+
+```{r, echo=FALSE}
+eval(parse(text = params$y))
+
+```
+
