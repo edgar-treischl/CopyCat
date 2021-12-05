@@ -19,7 +19,7 @@ copycat_viewer <- function(x, file_path = NULL) {
 }
 
 
-copycat_example <- function(x, data) {
+copycat_example <- function(x, data = ccc) {
   y <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
