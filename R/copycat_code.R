@@ -1,14 +1,14 @@
-#' Copycat_code
+#' copycat_code
 #'
-#' @param x A factor
-#' @param data A df
+#' @param x A search string
+#' @param data Data
 #' @importFrom magrittr %>%
 #'
-#' @return A factor
+#' @return A string
 #' @export
 #'
 
-copycat_code <- function(x, data = ccc) {
+copycat_code <- function(x, data) {
   code <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
@@ -21,7 +21,18 @@ copycat_code <- function(x, data = ccc) {
 
 }
 
-copycat_package <- function(x, data = ccc) {
+#' copycat_package
+#'
+#' @param x A search string
+#' @param data Data
+#' @importFrom magrittr %>%
+#'
+#' @return A string
+#' @export
+#'
+
+
+copycat_package <- function(x, data) {
   package <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(package)
@@ -34,7 +45,17 @@ copycat_package <- function(x, data = ccc) {
 
 }
 
-copy_that <- function(x, data = ccc) {
+#' copy_that
+#'
+#' @param x A search string
+#' @param data Data
+#' @importFrom magrittr %>%
+#'
+#' @return A string
+#' @export
+#'
+
+copy_that <- function(x, data) {
   code <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
@@ -47,17 +68,5 @@ copy_that <- function(x, data = ccc) {
   }
 }
 
-
-
-copycat_requires <- function(pack){
-
-  create.pkg <- pack[!(pack %in% installed.packages()[, "Package"])]
-  if (length(create.pkg))
-
-    install.packages(create.pkg, dependencies = TRUE)
-
-  sapply(pack, require, character.only = TRUE)
-
-}
 
 
