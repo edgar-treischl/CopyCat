@@ -47,14 +47,14 @@ Let's say you cannot remember how `pivot_longer` from the `tidyr` package works.
 
 ```{r}
 ## returns a code snippet
-copycat_code("pivot_longer")
+copycat_code("pivot_longer", ccc)
 ```
 
 To work with your code snippets, `copy_that` saves the code to your clipboard.
 
 ```{r, eval=FALSE}
 # saves the returned code to the clipboad
-copy_that("pivot_longer")
+copy_that("pivot_longer", ccc)
 #> [1] "You are ready to paste!"
 ```
 
@@ -70,7 +70,7 @@ Of course, this only works if you loaded the corresponding package and `copycat_
 
 ```{r}
 #search for a package name 
-copycat_package("pivot_longer")
+copycat_package("pivot_longer", ccc)
 ```
 
 I started to create this package because I started to search within my old files, especially for `ggplots`, which is why most commands from the cheat sheet are already included:

@@ -68,5 +68,7 @@ copy_that <- function(x, data) {
   }
 }
 
+utils::globalVariables(c("fct"))
+
 
 
