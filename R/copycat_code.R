@@ -59,14 +59,23 @@ copy_that <- function(x, data = ccc) {
   code <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
+  searchstring <- x
+  result <- agrep(searchstring, ccc$fct)
 
-  if(length(code) == 0L) {
-    print("Sooorry, I've got no idea what you are looking for!")
-  } else {
+  if (length(code) == 1L) {
     print("You are ready to paste!")
     clipr::write_clip(code)
+  } else if (length(code) == 0L & length(result) == 0L ) {
+    print("Sooorry, I've got no idea what you are looking for!")
+  } else {
+    print(paste("Did you mean", ccc$fct[result], "maybe?"))
   }
+
 }
+
+
+
+
 
 utils::globalVariables(c("fct", "ccc"))
 
