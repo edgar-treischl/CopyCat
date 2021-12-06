@@ -8,7 +8,7 @@
 #' @export
 #'
 
-copycat_code <- function(x, data) {
+copycat_code <- function(x, data = ccc) {
   code <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
@@ -32,7 +32,7 @@ copycat_code <- function(x, data) {
 #'
 
 
-copycat_package <- function(x, data) {
+copycat_package <- function(x, data = ccc) {
   package <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(package)
@@ -55,7 +55,7 @@ copycat_package <- function(x, data) {
 #' @export
 #'
 
-copy_that <- function(x, data) {
+copy_that <- function(x, data = ccc) {
   code <- data %>%
     dplyr::filter(fct %in% x) %>%
     dplyr::pull(code)
@@ -68,7 +68,7 @@ copy_that <- function(x, data) {
   }
 }
 
-utils::globalVariables(c("fct"))
+utils::globalVariables(c("fct", "ccc"))
 
 
 

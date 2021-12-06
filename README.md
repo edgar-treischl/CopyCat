@@ -48,7 +48,7 @@ returns the code snippet.
 
 ``` r
 ## returns a code snippet
-copycat_code("pivot_longer", ccc)
+copycat_code("pivot_longer")
 #> [1] "Your code my friend:"
 #> relig_income %>% pivot_longer(!religion, names_to = 'income', values_to = 'count')
 ```
@@ -58,7 +58,7 @@ clipboard.
 
 ``` r
 # saves the returned code to the clipboad
-copy_that("pivot_longer", ccc)
+copy_that("pivot_longer")
 #> [1] "You are ready to paste!"
 ```
 
@@ -90,7 +90,7 @@ remember the name of the package anymore.
 
 ``` r
 #search for a package name 
-copycat_package("pivot_longer", ccc)
+copycat_package("pivot_longer")
 #> [1] "The package name:"
 #> tidyr
 ```
