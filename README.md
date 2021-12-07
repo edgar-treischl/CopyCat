@@ -23,8 +23,8 @@ devtools::install_github("edgar-treischl/CopyCat")
 
 ## Example
 
-This is a basic example to show you how CopyCat searches within a data
-frame for the code snippet you are looking for.
+This is an example to show how CopyCat searches within a data frame for
+the code snippet you are looking for.
 
 ``` r
 ## load library and provide a data frame 
@@ -43,8 +43,8 @@ head(ccc)
 
 Let’s say you cannot remember how `pivot_longer` from the `tidyr`
 package works. CopyCat comes with a example code, the copy cat code
-(`copycat::ccc`) which contains the described that; `copycat_code` just
-returns the code snippet.
+(`copycat::ccc`) which contains the described command base on minimal
+example; `copycat_code()` just returns the code snippet.
 
 ``` r
 ## returns a code snippet
@@ -53,17 +53,17 @@ copycat_code("pivot_longer")
 #> relig_income %>% pivot_longer(!religion, names_to = 'income', values_to = 'count')
 ```
 
-To work with your code snippets, `copy_that` saves the code to your
-clipboard.
+To work with your code snippets, `copy_that` saves the returned code to
+your clipboard.
 
 ``` r
 # saves the returned code to the clipboad
 copy_that("pivot_longer")
-#> [1] "You are ready to paste!"
+#> [1] "🐈 You are ready to paste!"
 ```
 
-If the code is based on implemented data – as all example in ccc – you
-can see how it works just by pasting it into your console.
+If the code is based on implemented data – as all example in provided
+data – you can see how it works just by pasting it into your console.
 
 ``` r
 relig_income %>% 
@@ -84,20 +84,36 @@ relig_income %>%
 #> # ... with 170 more rows
 ```
 
-Of course, this only works if you loaded the corresponding package and
-`copycat_package` returns the name of package, just in case you cannot
-remember the name of the package anymore.
+Of course, this only works if you the corresponding package is already
+loaded. The `copycat_package()` function returns the name of package,
+just in case you cannot remember the name of the package anymore.
 
 ``` r
 #search for a package name 
 copycat_package("pivot_longer")
-#> [1] "The package name:"
-#> tidyr
+#>[1] "🐈 The package name is tidyr"
 ```
 
-I started to create this package because I started to search within my
-old files, especially for `ggplots`, which is why most commands from the
-cheat sheet are already included:
+If you add typos, if you are not sure whether the function is written in
+small or large caps, you might be lucky and a similar match is found in
+the data.
+
+``` r
+#typos and other mistakes 
+copycat_package("bivot_longer")
+#> [1] "Did you mean pivot_longer from the tidyr package?"
+```
+
+Unfortunately, this will only work if a match is found at all.
+
+``` r
+copy_that("bivat")
+#>[1] "💩 Sooorry, I've got no idea what you are looking for!"
+```
+
+I started to create this package because I search within my old files to
+often, especially for `ggplot` commands, which is why most commands from
+the `ggplot2` cheat sheet are already included in the data.
 
 ``` r
 ccc %>% 
@@ -118,3 +134,5 @@ ccc %>%
 #> 10 ggplot2 geom_density  "ggplot(mpg, aes(hwy))+\r\n  geom_density(kernel = \"g~
 #> # ... with 22 more rows
 ```
+
+Feel free to use for your own data and code snippets from the past.

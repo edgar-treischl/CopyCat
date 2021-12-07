@@ -14,7 +14,8 @@ Imports:
     dplyr,
     magrittr,
     tidyr,
-    rmarkdown
+    rmarkdown,
+    utf8
 Depends: 
     R (>= 2.10)
 Suggests: 
