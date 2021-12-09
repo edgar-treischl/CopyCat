@@ -40,7 +40,7 @@ This is an example to show how CopyCat searches within a data frame for the code
 ```{r example}
 ## load library and provide a data frame 
 library(copycat)
-head(ccc)
+head(CopyCatCode)
 ```
 
 Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. CopyCat comes with a example code, the copy cat code (`copycat::ccc`) which contains the described command base on minimal example; `copycat_code()` just returns the code snippet.
@@ -92,7 +92,7 @@ copy_that("bivat")
 I started to create this package because I search within my old files to often, especially for `ggplot` commands, which is why most commands from the `ggplot2` cheat sheet are already included in the data.
 
 ```{r}
-ccc %>% 
+CopyCatCode %>% 
   filter(package == "ggplot2") %>% 
   arrange(fct)
 ```

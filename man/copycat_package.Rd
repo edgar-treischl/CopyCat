@@ -4,7 +4,7 @@
 \alias{copycat_package}
 \title{copycat_package}
 \usage{
-copycat_package(x, data)
+copycat_package(x, data = CopyCatCode)
 }
 \arguments{
 \item{x}{A search string}

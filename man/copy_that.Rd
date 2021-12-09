@@ -4,7 +4,7 @@
 \alias{copy_that}
 \title{copy_that}
 \usage{
-copy_that(x, data)
+copy_that(x, data = CopyCatCode)
 }
 \arguments{
 \item{x}{A search string}

@@ -13,7 +13,6 @@ Imports:
     clipr,
     dplyr,
     magrittr,
-    tidyr,
     rmarkdown,
     utf8
 Depends: 

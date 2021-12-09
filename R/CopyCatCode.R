@@ -1,6 +1,6 @@
 #' Copy Cat Code:
 #'
-#' A dataset containing minimal examples of code snippets
+#' A data set containing minimal examples of code snippets
 #' that run with implemented data.
 #'
 #' @format A data frame with 41 rows and 3 variables:
@@ -11,4 +11,4 @@
 #'   ...
 #' }
 #' @source \url{http://www.edgar-treischl.de/}
-"ccc"
+"CopyCatCode"

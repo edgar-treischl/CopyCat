@@ -4,7 +4,7 @@
 \alias{copycat_code}
 \title{copycat_code}
 \usage{
-copycat_code(x, data)
+copycat_code(x, data = CopyCatCode)
 }
 \arguments{
 \item{x}{A search string}

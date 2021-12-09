@@ -29,13 +29,13 @@ the code snippet you are looking for.
 ``` r
 ## load library and provide a data frame 
 library(copycat)
-head(ccc)
+head(CopyCatCode)
 #> # A tibble: 6 x 3
 #>   package    fct          code                                                  
 #>   <chr>      <chr>        <chr>                                                 
 #> 1 base       logit        "glm(am ~ mpg, family = binomial(link = 'logit'), dat~
 #> 2 base       lm           "lm(mpg ~ wt + cyl, data = mtcars)"                   
-#> 3 tidyr      pivot_longer "relig_income %>% pivot_longer(!religion, names_to = ~
+#> 3 tidyr      pivot_longer "relig_income %>% tidyr::pivot_longer(!religion, name~
 #> 4 pwr        pwr_t_test   "pwr.t.test(d=0.1, sig.level=0.05, power=NULL, n=32,t~
 #> 5 base       factor       "factor(var, levels = c(0, 1), labels = c(\"0\", \"1\~
 #> 6 dotwhisker dwplot       "dwplot(lm(mpg ~ wt + cyl, data = mtcars), \r\n      ~
@@ -49,8 +49,7 @@ example; `copycat_code()` just returns the code snippet.
 ``` r
 ## returns a code snippet
 copycat_code("pivot_longer")
-#> [1] "Your code my friend:"
-#> relig_income %>% pivot_longer(!religion, names_to = 'income', values_to = 'count')
+#> [1] "<U+0001F408> Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
 ```
 
 To work with your code snippets, `copy_that` saves the returned code to
@@ -116,23 +115,23 @@ often, especially for `ggplot` commands, which is why most commands from
 the `ggplot2` cheat sheet are already included in the data.
 
 ``` r
-ccc %>% 
+CopyCatCode %>% 
   filter(package == "ggplot2") %>% 
   arrange(fct)
-#> # A tibble: 32 x 3
-#>    package fct           code                                                   
-#>    <chr>   <chr>         <chr>                                                  
-#>  1 ggplot2 annotate      "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(c~
-#>  2 ggplot2 geom_abline   "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  g~
-#>  3 ggplot2 geom_area     "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")"
-#>  4 ggplot2 geom_bar      "ggplot(data=mpg, aes(x=class)) + geom_bar()"          
-#>  5 ggplot2 geom_boxplot  "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +~
-#>  6 ggplot2 geom_col      "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_c~
-#>  7 ggplot2 geom_count    "ggplot(diamonds, aes(cut, color))+\r\n  geom_count()" 
-#>  8 ggplot2 geom_crossbar "iris %>%\r\n  group_by(Species) %>% \r\n  summarise(m~
-#>  9 ggplot2 geom_density  "ggplot(mtcars, aes(x=mpg)) + geom_density(alpha=.2, f~
-#> 10 ggplot2 geom_density  "ggplot(mpg, aes(hwy))+\r\n  geom_density(kernel = \"g~
-#> # ... with 22 more rows
+#> # A tibble: 46 x 3
+#>    package fct          code                                                    
+#>    <chr>   <chr>        <chr>                                                   
+#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co~
+#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
+#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
+#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge~
+#>  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" 
+#>  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           
+#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid~
+#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\~
+#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co~
+#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)~
+#> # ... with 36 more rows
 ```
 
 Feel free to use for your own data and code snippets from the past.
