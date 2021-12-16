@@ -6,11 +6,12 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-CopyCat is a simple package to handle code snippets in R. Save your code
-snippets as a data frame, CopyCat searches your data base and copies the
-code to the clipboard. Furthermore, it already includes some of my own
-code snippets and the `ggplot2` commands from the corresponding cheat
-sheet.
+CopyCat is a simple package to handle (your own) code snippets and it
+includes code snippets of the `ggplot2` and the `tidyr` package. It
+provides minimal examples from the cheat sheets that can be executed
+without further ado. Furthermore, you can also save your own code
+snippets as an additional data source, CopyCat searches within your data
+base and copies the code to the clipboard.
 
 ## Installation
 
@@ -23,37 +24,42 @@ devtools::install_github("edgar-treischl/CopyCat")
 
 ## Example
 
-This is an example to show how CopyCat searches within a data frame for
-the code snippet you are looking for.
+I started to create this package because I do not know how many times I
+searched within my old scripts, especially for some `ggplot` commands
+that I have been applied in the past, but I have forgotten the details.
+For this reason, CopyCat comes with a small data set (`CopyCatCode`)
+that contains minimal examples of several cheat sheets. For example,
+let’s have a look at the minimal examples of the ggplot2 package. The
+`CopyCatCode` data provides the package name, the function, and the code
+of the minimal example:
 
 ``` r
 ## load library and provide a data frame 
 library(copycat)
-head(CopyCatCode)
-#> # A tibble: 6 x 3
-#>   package    fct          code                                                  
-#>   <chr>      <chr>        <chr>                                                 
-#> 1 base       logit        "glm(am ~ mpg, family = binomial(link = 'logit'), dat~
-#> 2 base       lm           "lm(mpg ~ wt + cyl, data = mtcars)"                   
-#> 3 tidyr      pivot_longer "relig_income %>% tidyr::pivot_longer(!religion, name~
-#> 4 pwr        pwr_t_test   "pwr.t.test(d=0.1, sig.level=0.05, power=NULL, n=32,t~
-#> 5 base       factor       "factor(var, levels = c(0, 1), labels = c(\"0\", \"1\~
-#> 6 dotwhisker dwplot       "dwplot(lm(mpg ~ wt + cyl, data = mtcars), \r\n      ~
+
+CopyCatCode %>% 
+  filter(package == "ggplot2") %>% 
+  arrange(fct)
+#> # A tibble: 46 x 3
+#>    package fct          code                                                    
+#>    <chr>   <chr>        <chr>                                                   
+#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co~
+#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
+#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
+#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge~
+#>  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" 
+#>  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           
+#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid~
+#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\~
+#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co~
+#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)~
+#> # ... with 36 more rows
 ```
 
 Let’s say you cannot remember how `pivot_longer` from the `tidyr`
-package works. CopyCat comes with a example code, the copy cat code
-(`copycat::ccc`) which contains the described command base on minimal
-example; `copycat_code()` just returns the code snippet.
-
-``` r
-## returns a code snippet
-copycat_code("pivot_longer")
-#> [1] "<U+0001F408> Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
-```
-
-To work with your code snippets, `copy_that` saves the returned code to
-your clipboard.
+package works. Just search for the corresponding code snippet via the
+`copy_that` function, it searches for the code snippet and saves the
+returned code to your clipboard.
 
 ``` r
 # saves the returned code to the clipboad
@@ -61,8 +67,8 @@ copy_that("pivot_longer")
 #> [1] "🐈 You are ready to paste!"
 ```
 
-If the code is based on implemented data – as all example in provided
-data – you can see how it works just by pasting it into your console.
+Since the code is based on implemented data – as all examples listed in
+CopyCat – you can see how it works just by pasting it into your console.
 
 ``` r
 relig_income %>% 
@@ -83,9 +89,10 @@ relig_income %>%
 #> # ... with 170 more rows
 ```
 
-Of course, this only works if you the corresponding package is already
-loaded. The `copycat_package()` function returns the name of package,
-just in case you cannot remember the name of the package anymore.
+Of course, the minimal examples will only run if the package has been
+loaded. The `copycat_package()` function returns the code to load the
+corresponding package and saves it into your clipboard, just in case you
+cannot remember the name of the package anymore.
 
 ``` r
 #search for a package name 
@@ -93,9 +100,9 @@ copycat_package("pivot_longer")
 #>[1] "🐈 The package name is tidyr"
 ```
 
-If you add typos, if you are not sure whether the function is written in
-small or large caps, you might be lucky and a similar match is found in
-the data.
+If you add typos by accident, if you are not sure whether the function
+is written in small or large caps, you might be lucky and a similar
+match is found in the data.
 
 ``` r
 #typos and other mistakes 
@@ -103,35 +110,43 @@ copycat_package("bivot_longer")
 #> [1] "Did you mean pivot_longer from the tidyr package?"
 ```
 
-Unfortunately, this will only work if a match is found at all.
+Unfortunately, this only works if a match is found at all.
 
 ``` r
 copy_that("bivat")
 #>[1] "💩 Sooorry, I've got no idea what you are looking for!"
 ```
 
-I started to create this package because I search within my old files to
-often, especially for `ggplot` commands, which is why most commands from
-the `ggplot2` cheat sheet are already included in the data.
+CopyCat can also be connected to your Github repository to copy the
+entire code of your old scripts. First, you have to setup the Github
+account details, that CopyCat will search for you.
 
 ``` r
-CopyCatCode %>% 
-  filter(package == "ggplot2") %>% 
-  arrange(fct)
-#> # A tibble: 46 x 3
-#>    package fct          code                                                    
-#>    <chr>   <chr>        <chr>                                                   
-#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co~
-#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge~
-#>  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" 
-#>  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           
-#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid~
-#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\~
-#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co~
-#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)~
-#> # ... with 36 more rows
+git_setup <- c(author = "edgar-treischl",
+               repository = "Illustrations",
+               branch = "master")
 ```
 
-Feel free to use for your own data and code snippets from the past.
+The `git_search()` function uses the Github API to search within your
+repository and returns all R scripts.
+
+``` r
+git_search()
+#> # A tibble: 3 x 1
+#>   git_scripts             
+#>   <chr>                   
+#> 1 R/Simpsons_Paradox.R    
+#> 2 R/boxplot_illustration.R
+#> 3 R/boxplot_pitfalls.R
+```
+
+The `git_copy()` function copies your file to your clipboard.
+
+``` r
+git_copy("boxplot_illustration")
+#>[1] "🐈 Mission accomplished!"
+```
+
+CopyCat started as a personal package, but feel free to use it for your
+own data and code snippets. Just add your data frame with the same
+variable names and CopyCat handles your own snippets.
