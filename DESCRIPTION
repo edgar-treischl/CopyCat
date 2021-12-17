@@ -13,11 +13,14 @@ Imports:
     clipr,
     devtools,
     dplyr,
+    fs,
     httr,
     magrittr,
     rmarkdown,
+    rstudioapi,
     stringr,
     tidyr,
+    tools,
     utf8
 Depends: 
     R (>= 2.10)
