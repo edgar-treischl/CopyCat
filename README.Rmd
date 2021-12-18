@@ -47,12 +47,11 @@ CopyCatCode %>%
 ```
 
 
-Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copy_that` function, it searches for the code snippet and saves the returned code to your clipboard.
+Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copycat` function, it searches for the code snippet and saves the returned code to your clipboard.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 # saves the returned code to the clipboad
-copy_that("pivot_longer")
-#> [1] "🐈 You are ready to paste!"
+copycat_code("pivot_longer")
 ```
 
 Since the code is based on implemented data -- as all examples listed in CopyCat -- you can see how it works just by pasting it into your console.
@@ -66,9 +65,9 @@ relig_income %>%
 Of course, the minimal examples will only run if the package has been loaded. The `copycat_package()` function returns the code to load the corresponding package and saves it into your clipboard, just in case you cannot remember the name of the package anymore.
 
 ```{r, eval=FALSE}
-#search for a package name 
+#search for a package name, copies the load and loads the library
 copycat_package("pivot_longer")
-#>[1] "🐈 The package name is tidyr"
+#>[1] [1] "🐈 Mission accomplished, loaded and copied library: tidyr"
 ```
 
 If you add typos by accident, if you are not sure whether the function is written in small or large caps, you might be lucky and a similar match is found in the data.
@@ -81,7 +80,7 @@ copycat_package("bivot_longer")
 Unfortunately, this only works if a match is found at all.
 
 ```{r, eval=F}
-copy_that("bivat")
+copycat("bivat")
 #>[1] "💩 Sooorry, I've got no idea what you are looking for!"
 ```
 
@@ -93,17 +92,17 @@ git_setup <- c(author = "edgar-treischl",
                branch = "master")
 ```
 
-The `git_search()` function uses the Github API to search within your repository and returns all R scripts.
+The `copycat_gitsearch()` function uses the Github API to search within your repository and returns all R scripts.
 
 
 ```{r}
-git_search()
+copycat_gitsearch()
 ```
 
-The `git_copy()` function copies your file to your clipboard.
+The `copycat_git()` function copies your file to your clipboard.
 
 ```{r, eval=FALSE}
-git_copy("boxplot_illustration")
+copycat_git("boxplot_illustration")
 #>[1] "🐈 Mission accomplished!"
 ```
 

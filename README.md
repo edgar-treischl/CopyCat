@@ -40,31 +40,31 @@ library(copycat)
 CopyCatCode %>% 
   filter(package == "ggplot2") %>% 
   arrange(fct)
-#> # A tibble: 46 x 3
+#> # A tibble: 46 × 3
 #>    package fct          code                                                    
 #>    <chr>   <chr>        <chr>                                                   
-#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co~
-#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge~
+#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co…
+#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…
+#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…
+#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge…
 #>  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" 
 #>  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           
-#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid~
-#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\~
-#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co~
-#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)~
-#> # ... with 36 more rows
+#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid…
+#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\…
+#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co…
+#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)…
+#> # … with 36 more rows
 ```
 
 Let’s say you cannot remember how `pivot_longer` from the `tidyr`
 package works. Just search for the corresponding code snippet via the
-`copy_that` function, it searches for the code snippet and saves the
+`copycat` function, it searches for the code snippet and saves the
 returned code to your clipboard.
 
 ``` r
 # saves the returned code to the clipboad
-copy_that("pivot_longer")
-#> [1] "🐈 You are ready to paste!"
+copycat_code("pivot_longer")
+#> [1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
 ```
 
 Since the code is based on implemented data – as all examples listed in
@@ -73,7 +73,7 @@ CopyCat – you can see how it works just by pasting it into your console.
 ``` r
 relig_income %>% 
   pivot_longer(!religion, names_to = 'income', values_to = 'count')
-#> # A tibble: 180 x 3
+#> # A tibble: 180 × 3
 #>    religion income             count
 #>    <chr>    <chr>              <dbl>
 #>  1 Agnostic <$10k                 27
@@ -86,7 +86,7 @@ relig_income %>%
 #>  8 Agnostic $100-150k            109
 #>  9 Agnostic >150k                 84
 #> 10 Agnostic Don't know/refused    96
-#> # ... with 170 more rows
+#> # … with 170 more rows
 ```
 
 Of course, the minimal examples will only run if the package has been
@@ -95,9 +95,9 @@ corresponding package and saves it into your clipboard, just in case you
 cannot remember the name of the package anymore.
 
 ``` r
-#search for a package name 
+#search for a package name, copies the load and loads the library
 copycat_package("pivot_longer")
-#>[1] "🐈 The package name is tidyr"
+#>[1] [1] "🐈 Mission accomplished, loaded and copied library: tidyr"
 ```
 
 If you add typos by accident, if you are not sure whether the function
@@ -113,7 +113,7 @@ copycat_package("bivot_longer")
 Unfortunately, this only works if a match is found at all.
 
 ``` r
-copy_that("bivat")
+copycat("bivat")
 #>[1] "💩 Sooorry, I've got no idea what you are looking for!"
 ```
 
@@ -127,12 +127,12 @@ git_setup <- c(author = "edgar-treischl",
                branch = "master")
 ```
 
-The `git_search()` function uses the Github API to search within your
-repository and returns all R scripts.
+The `copycat_gitsearch()` function uses the Github API to search within
+your repository and returns all R scripts.
 
 ``` r
-git_search()
-#> # A tibble: 3 x 1
+copycat_gitsearch()
+#> # A tibble: 3 × 1
 #>   git_scripts             
 #>   <chr>                   
 #> 1 R/Simpsons_Paradox.R    
@@ -140,10 +140,10 @@ git_search()
 #> 3 R/boxplot_pitfalls.R
 ```
 
-The `git_copy()` function copies your file to your clipboard.
+The `copycat_git()` function copies your file to your clipboard.
 
 ``` r
-git_copy("boxplot_illustration")
+copycat_git("boxplot_illustration")
 #>[1] "🐈 Mission accomplished!"
 ```
 
