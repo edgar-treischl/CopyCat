@@ -1,4 +1,4 @@
-#' git_search
+#' copycat_gitsearch
 #' @param author A character vector.
 #' @param repository A character vector.
 #' @param branch A character vector.
@@ -8,7 +8,7 @@
 #'
 
 
-git_search <- function(author, repository, branch = "master") {
+copycat_gitsearch <- function(author, repository, branch = "master") {
 
   if (exists("git_setup") == TRUE) {
     author <- git_setup[1]
@@ -50,7 +50,7 @@ git_search <- function(author, repository, branch = "master") {
 
 }
 
-#' git_copy
+#' copycat_git
 #'
 #' @param file A character vector.
 #'
@@ -58,7 +58,7 @@ git_search <- function(author, repository, branch = "master") {
 #' @export
 #'
 
-git_copy <- function(file) {
+copycat_git <- function(file) {
 
   if (exists("git_setup") == TRUE) {
     author <- git_setup[1]
@@ -93,7 +93,7 @@ git_copy <- function(file) {
 }
 
 
-#' git_plot
+#' copycat_gitplot
 #'
 #' @param file A character vector.
 #'
@@ -105,7 +105,7 @@ git_copy <- function(file) {
 #' strsplit(x, split = ",")
 
 
-git_plot <- function(file) {
+copycat_gitplot <- function(file) {
   author <- "edgar-treischl"
   repository <- "Illustrations"
 

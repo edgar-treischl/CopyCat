@@ -1,4 +1,4 @@
-#' copycat_helpfiles
+#' copycat_helpsearch
 #'
 #' @param pkg A search string
 #'
@@ -6,12 +6,57 @@
 #' @export
 #'
 
-copycat_helpfiles <- function(pkg){
+copycat_helpsearch <- function(pkg){
   rdbfile <- file.path(find.package(pkg), "help", pkg)
   fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
 
   rdb <- fetchRdDB(rdbfile, key = NULL)
   names(rdb)
+}
+
+#' copycat_helpcode
+#'
+#' @param pkg A search string
+#' @param fn A search string
+#'
+#' @return A string
+#' @export
+#'
+
+copycat_helpcode <- function(pkg, fn) {
+  rdbfile <- file.path(find.package(pkg), "help", pkg)
+  fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
+  rdb <- fetchRdDB(rdbfile, key = fn)
+  to <- "txt"
+  convertor <- switch(to,
+                      txt   = tools::Rd2txt,
+                      html  = tools::Rd2HTML,
+                      latex = tools::Rd2latex,
+                      ex    = tools::Rd2ex
+  )
+
+  f <- function(x) capture.output(convertor(x))
+  text <- f(rdb)
+  pattern <- "_\bE_\bx_\ba_\bm_\bp_\bl_\be_\bs:"
+  empty_cells <- ""
+  replace <- "#Extracted examples:"
+  detect <- stringr::str_detect(text, pattern)
+  empty <- stringr::str_detect(text, empty_cells)
+
+  df <- data.frame(x = text,
+                   y = detect,
+                   z = empty)
+
+  df$x <- stringr::str_replace(df$x, pattern, replace)
+  df <- subset(df, z == TRUE)
+  pos_data <- which(df$y == TRUE)
+  if (length(pos_data) == 0) {
+    print("Nothing there to show.")
+  } else {
+    lx <- length(df$x)
+    x <- df$x[pos_data:lx]
+    return(x)
+  }
 }
 
 #' copycat_help
@@ -50,51 +95,6 @@ copycat_help <- function(pkg, fn) {
   df$x <- stringr::str_replace(df$x, pattern, replace)
   df <- subset(df, z == TRUE)
   pos_data <- which(df$y == TRUE)
-  if (length(pos_data) == 0) {
-    print("Nothing there to show.")
-  } else {
-    lx <- length(df$x)
-    x <- df$x[pos_data:lx]
-    return(x)
-  }
-}
-
-#' copy_help
-#'
-#' @param pkg A search string
-#' @param fn A search string
-#'
-#' @return A string
-#' @export
-#'
-
-copy_help <- function(pkg, fn) {
-  rdbfile <- file.path(find.package(pkg), "help", pkg)
-  fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
-  rdb <- fetchRdDB(rdbfile, key = fn)
-  to <- "txt"
-  convertor <- switch(to,
-                      txt   = tools::Rd2txt,
-                      html  = tools::Rd2HTML,
-                      latex = tools::Rd2latex,
-                      ex    = tools::Rd2ex
-  )
-
-  f <- function(x) capture.output(convertor(x))
-  text <- f(rdb)
-  pattern <- "_\bE_\bx_\ba_\bm_\bp_\bl_\be_\bs:"
-  empty_cells <- ""
-  replace <- "#Extracted examples:"
-  detect <- stringr::str_detect(text, pattern)
-  empty <- stringr::str_detect(text, empty_cells)
-
-  df <- data.frame(x = text,
-                   y = detect,
-                   z = empty)
-
-  df$x <- stringr::str_replace(df$x, pattern, replace)
-  df <- subset(df, z == TRUE)
-  pos_data <- which(df$y == TRUE)
   cat_emoji <- "\U0001F431"
   if (length(pos_data) == 0) {
     print("Nothing there to copy.")
@@ -107,7 +107,7 @@ copy_help <- function(pkg, fn) {
 }
 
 
-#' copycat_helpfile
+#' copycat_helpscript
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -118,8 +118,8 @@ copy_help <- function(pkg, fn) {
 #'
 
 
-copycat_inserthelp <- function(pkg, fn, path = NULL){
-  text <- copy_help(pkg, fn)
+copycat_helpscript <- function(pkg, fn, path = NULL){
+  text <- copycat_help(pkg, fn)
   test <- text == "Nothing there to copy."
 
   if (test[1] == TRUE) {

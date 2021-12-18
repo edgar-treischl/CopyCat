@@ -69,7 +69,7 @@ copycat_package <- function(x, data = CopyCatCode) {
 
 
 
-#' copy_that
+#' copycat
 #'
 #' @param x A search string
 #' @param data Data
@@ -79,7 +79,7 @@ copycat_package <- function(x, data = CopyCatCode) {
 #' @export
 #'
 
-copy_that <- function(x, data = CopyCatCode) {
+copycat <- function(x, data = CopyCatCode) {
   x <- gsub(" ", "", x, fixed = TRUE)
 
   code <- data %>%
