@@ -50,10 +50,13 @@ copycat_help <- function(pkg, fn) {
   df$x <- stringr::str_replace(df$x, pattern, replace)
   df <- subset(df, z == TRUE)
   pos_data <- which(df$y == TRUE)
-  lx <- length(df$x)
-  x <- df$x[pos_data:lx]
-  return(x)
-
+  if (length(pos_data) == 0) {
+    print("Nothing there to show.")
+  } else {
+    lx <- length(df$x)
+    x <- df$x[pos_data:lx]
+    return(x)
+  }
 }
 
 #' copy_help
@@ -92,10 +95,15 @@ copy_help <- function(pkg, fn) {
   df$x <- stringr::str_replace(df$x, pattern, replace)
   df <- subset(df, z == TRUE)
   pos_data <- which(df$y == TRUE)
-  lx <- length(df$x)
-  x <- df$x[pos_data:lx]
-  clipr::write_clip(x)
-
+  cat_emoji <- "\U0001F431"
+  if (length(pos_data) == 0) {
+    print("Nothing there to copy.")
+  } else {
+    print(paste(cat_emoji, "help copied!"))
+    lx <- length(df$x)
+    x <- df$x[pos_data:lx]
+    clipr::write_clip(x)
+  }
 }
 
 
@@ -111,20 +119,25 @@ copy_help <- function(pkg, fn) {
 
 
 copycat_inserthelp <- function(pkg, fn, path = NULL){
-  path <- paste("~/", fn, "_examples.R", sep = "")
-  fs::file_create(path)
-  id <- rstudioapi::getSourceEditorContext()$id
-  rstudioapi::navigateToFile(path)
-
-  while(rstudioapi::getSourceEditorContext()$id == id){
-    next()
-    Sys.sleep(0.1) # slow down the while loop to avoid over-processing
-  }
-  id <- rstudioapi::getSourceEditorContext()$id
   text <- copy_help(pkg, fn)
+  test <- text == "Nothing there to copy."
 
+  if (test[1] == TRUE) {
+    print("And therefore nothing there to insert.")
+  } else {
+    path <- paste("~/", fn, "_examples.R", sep = "")
+    fs::file_create(path)
+    id <- rstudioapi::getSourceEditorContext()$id
+    rstudioapi::navigateToFile(path)
+
+    while(rstudioapi::getSourceEditorContext()$id == id){
+      next()
+      Sys.sleep(0.1) # slow down the while loop to avoid over-processing
+    }
+    id <- rstudioapi::getSourceEditorContext()$id
+    rstudioapi::insertText(text)
+  }
   #range <- rstudioapi::document_range(c(1, 0), c(15,0))
-  rstudioapi::insertText(text)
 }
 
 
