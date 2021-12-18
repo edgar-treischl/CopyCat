@@ -125,7 +125,8 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
   if (test[1] == TRUE) {
     print("And therefore nothing there to insert.")
   } else {
-    path <- paste("~/", fn, "_examples.R", sep = "")
+    tmp <- fs::dir_create(fs::file_temp())
+    path <- paste(tmp,"/", fn, "_examples.R", sep = "")
     fs::file_create(path)
     id <- rstudioapi::getSourceEditorContext()$id
     rstudioapi::navigateToFile(path)
@@ -139,6 +140,7 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
   }
   #range <- rstudioapi::document_range(c(1, 0), c(15,0))
 }
+
 
 
 
