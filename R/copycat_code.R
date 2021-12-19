@@ -74,6 +74,7 @@ copycat_package <- function(x, data = CopyCatCode) {
 #'
 #' @param x A search string
 #' @param data Data
+#' @param run TRUE or FALSE
 #' @importFrom magrittr %>%
 #'
 #' @return A string
