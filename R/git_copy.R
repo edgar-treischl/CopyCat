@@ -120,7 +120,9 @@ copycat_gitplot <- function(file) {
 
 
   devtools::source_url(x)
-  return(plot)
+  #code <- "plot"
+  #rstudioapi::sendToConsole(code, execute = TRUE, echo = TRUE, focus = TRUE)
+  #return(plot)
 
 }
 
