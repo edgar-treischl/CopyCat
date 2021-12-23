@@ -45,20 +45,20 @@ library(copycat)
 CopyCatCode %>% 
   filter(package == "ggplot2") %>% 
   arrange(fct)
-#> # A tibble: 46 x 3
+#> # A tibble: 46 × 3
 #>    package fct          code                                                    
 #>    <chr>   <chr>        <chr>                                                   
-#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co~
-#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r~
-#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge~
+#>  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co…
+#>  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…
+#>  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…
+#>  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge…
 #>  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" 
 #>  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           
-#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid~
-#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\~
-#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co~
-#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)~
-#> # ... with 36 more rows
+#>  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid…
+#>  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\…
+#>  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co…
+#> 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)…
+#> # … with 36 more rows
 ```
 
 Let’s say you cannot remember how `pivot_longer` from the `tidyr`
@@ -72,7 +72,7 @@ corresponding `copycat_code()` function.
 #>[1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = #>'income', values_to = 'count')"
 # copycat_code() let us inspect what the function returned 
 copycat_code("pivot_longer")
-#> [1] "<U+0001F408> Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
+#> [1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
 ```
 
 Since the code is based on implemented data – as all examples listed in
@@ -87,7 +87,7 @@ copycat("pivot_longer", run = T )
 ``` r
 relig_income %>% 
   pivot_longer(!religion, names_to = 'income', values_to = 'count')
-#> # A tibble: 180 x 3
+#> # A tibble: 180 × 3
 #>    religion income             count
 #>    <chr>    <chr>              <dbl>
 #>  1 Agnostic <$10k                 27
@@ -100,7 +100,7 @@ relig_income %>%
 #>  8 Agnostic $100-150k            109
 #>  9 Agnostic >150k                 84
 #> 10 Agnostic Don't know/refused    96
-#> # ... with 170 more rows
+#> # … with 170 more rows
 ```
 
 Of course, the minimal examples will only run if the package has been
@@ -154,7 +154,7 @@ repository
 
 ``` r
 copycat_gitsearch()
-#> # A tibble: 3 x 1
+#> # A tibble: 3 × 1
 #>   git_scripts             
 #>   <chr>                   
 #> 1 R/Simpsons_Paradox.R    
