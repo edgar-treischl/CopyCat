@@ -4,6 +4,8 @@
 # CopyCat <img src="man/figures/sticker.png" align="right" width="250/"/>
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/edgar-treischl/CopyCat/workflows/R-CMD-check/badge.svg)](https://github.com/edgar-treischl/CopyCat/actions)
 <!-- badges: end -->
 
 CopyCat is a small package to copy, paste, and view code snippets. All

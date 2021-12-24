@@ -8,3 +8,6 @@ navbar:
     left:  [intro, reference, articles]
     right: [search, github]
 
+development:
+  mode: auto
+

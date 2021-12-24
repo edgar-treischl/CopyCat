@@ -1,3 +1,5 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+
+test_that("returns dataframe", {
+  expect_equal(is.data.frame(copycat_gitsearch()), TRUE)
 })
+

@@ -14,14 +14,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include=FALSE}
 library(copycat)
 library(magrittr)
 library(tidyr)
 library(dplyr)
 ```
 
-## Copycat Examples
+## Examples
 
 I do not know how many times I have searched within my old scripts, especially for a `ggplot` command that I have been used many times, but I have forgotten the details. For this reason I started to create this package. CopyCat comes with a small data set (`CopyCatCode`) that contains minimal examples of several cheat sheets that run without further ado. For example, let's have a look at the minimal examples of the ggplot2 package. The `CopyCatCode` data provides the package name, the function, and the code of the minimal example:
 
