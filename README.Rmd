@@ -23,7 +23,7 @@ library(tidyverse)
 [![R-CMD-check](https://github.com/edgar-treischl/CopyCat/workflows/R-CMD-check/badge.svg)](https://github.com/edgar-treischl/CopyCat/actions)
 <!-- badges: end -->
 
-CopyCat is a small package to copy, paste, and view code snippets. All provided code snippets are minimal examples based on code that runs with implemented data, which helps R learner to see how the code works. CopyCat uses three different code sources. First, CopyCat comes with a small data frame that includes code snippets from the cheat sheets of the `ggplot2` and the `tidyr` package. Of course, you can use your own code snippets as a data source as well. Second, CopyCat can fetch and copy code that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. Thus, CopyCat was built as a personal package for the lazy cats, but it will also help new R learner to manage code snippets. 
+CopyCat is a small and personal package to copy, paste, and view code snippets. All provided code snippets are minimal examples based on code that runs with implemented data, which helps R learner to see how the code works. CopyCat uses three different code sources. First, CopyCat comes with a small data frame that includes code snippets from the cheat sheets of the `ggplot2` and the `tidyr` package. Of course, you can use your own code snippets as a data source as well. Second, CopyCat can fetch and copy code that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. Thus, CopyCat was built as a personal package for the lazy cats, but it will also help new R learner to manage code snippets. 
 
 
 
