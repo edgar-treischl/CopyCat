@@ -30,4 +30,5 @@ Suggests:
 Config/testthat/edition: 3
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr
-URL: https://github.com/edgar-treischl/CopyCat
+URL: https://github.com/edgar-treischl/CopyCat,
+    https://edgar-treischl.github.io/CopyCat/
