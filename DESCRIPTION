@@ -6,8 +6,8 @@ Authors@R: person("Edgar", "Treischl",
                 email = "edgar.treischl@fau.de",
                 comment = c(ORCID = "0000-0001-5627-9125"),
                 role = c("aut", "cre"))
-Description: Copycat is a very simple package that searches a dataframe
-    to find the right code snippet.
+Description: Copycat is a very simple package that searches within data, github
+    files, help and vignette files to find the right code snippet.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
