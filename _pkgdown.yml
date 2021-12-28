@@ -1,5 +1,13 @@
 url: https://github.com/edgar-treischl/CopyCat
-
 template:
   bootstrap: 5
   bootswatch: simplex
+
+navbar:
+  structure:
+    left:  [intro, reference, articles]
+    right: [github]
+
+development:
+  mode: auto
+
