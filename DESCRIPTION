@@ -2,8 +2,10 @@ Package: copycat
 Type: Package
 Title: Search and copy your code snippets 
 Version: 0.1.0
-Authors@R: person("Edgar", "Treischl", email = "edgar.treischl@fau.de",
-                  role = c("aut", "cre"))
+Authors@R: person("Edgar", "Treischl", 
+                email = "edgar.treischl@fau.de",
+                comment = c(ORCID = "0000-0001-5627-9125"),
+                role = c("aut", "cre"))
 Description: Copycat is a very simple package that searches a dataframe
     to find the right code snippet.
 License: MIT + file LICENSE
@@ -30,5 +32,5 @@ Suggests:
 Config/testthat/edition: 3
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr
-URL: https://github.com/edgar-treischl/CopyCat,
-    https://edgar-treischl.github.io/CopyCat/
+URL: https://github.com/edgar-treischl/CopyCat
+BugReports: https://github.com/edgar-treischl/CopyCat/issues
