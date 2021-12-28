@@ -1,4 +1,4 @@
-url: ~
+url: https://github.com/edgar-treischl/CopyCat
 template:
   bootstrap: 5
   bootswatch: simplex
@@ -6,7 +6,7 @@ template:
 navbar:
   structure:
     left:  [intro, reference, articles]
-    right: [search, github]
+    right: [github]
 
 development:
   mode: auto
