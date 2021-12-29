@@ -7,13 +7,21 @@
 copycat_code(x, data = CopyCatCode)
 }
 \arguments{
-\item{x}{A search string}
+\item{x}{A search string for the function}
 
-\item{data}{Data}
+\item{data}{A data frame}
 }
 \value{
-A string
+A text string that shows the code
 }
 \description{
-copycat_code
+`copycat_code()` uses a text string to search
+for a code of a function. The function just returns that code.
+It expects that the data frame has three columns. A column
+with the package name (package), a function (fun), and one with
+the code (code) to copy. If data = NULL, `copycat_code()` relies
+on the `CopyCatCode`.
+}
+\examples{
+copycat_code("pivot_wider")
 }

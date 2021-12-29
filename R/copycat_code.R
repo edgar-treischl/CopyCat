@@ -1,12 +1,20 @@
 #' copycat_code
+#' @description `copycat_code()` uses a text string to search
+#' for a code of a function. The function just returns that code.
+#' It expects that the data frame has three columns. A column
+#' with the package name (package), a function (fun), and one with
+#' the code (code) to copy. If data = NULL, `copycat_code()` relies
+#' on the `CopyCatCode`.
 #'
-#' @param x A search string
-#' @param data Data
+#' @param x A search string for the function
+#' @param data A data frame
 #' @importFrom magrittr %>%
 #'
-#' @return A string
+#' @return A text string that shows the code
 #' @export
 #'
+#' @examples
+#' copycat_code("pivot_wider")
 
 copycat_code <- function(x, data = CopyCatCode) {
   x <- gsub(" ", "", x, fixed = TRUE)
