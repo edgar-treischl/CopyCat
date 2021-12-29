@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# CopyCat <img src="man/figures/sticker.png" align="right" width="250/"/>
+# CopyCat <img src="man/figures/sticker.png" align="right" width="200"/>
 
 <!-- badges: start -->
 
