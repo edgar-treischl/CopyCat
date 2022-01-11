@@ -1,4 +1,5 @@
 #' copycat_code
+#'
 #' @description `copycat_code()` uses a text string to search
 #' for a code of a function. The function just returns that code.
 #' It expects that the data frame has three columns. A column
