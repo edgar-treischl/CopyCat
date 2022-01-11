@@ -129,6 +129,41 @@ copycat_gitplot <- function(file) {
 
 }
 
+#' copycat_gitcode
+#'
+#' @param file A character vector.
+#'
+#' @return A character vector.
+#' @export
+#'
+#' @examples
+#' x <- "alfa,bravo,charlie,delta"
+#' strsplit(x, split = ",")
+
+
+copycat_gitcode <- function(file) {
+  author <- "edgar-treischl"
+  repository <- "Illustrations"
+
+  if(exists("git_setup") == TRUE){
+    author <- git_setup[1]
+    repository <- git_setup[2]
+  }
+
+  x <- paste("https://raw.githubusercontent.com/",
+             author, "/", repository, "/master/R/",
+             file, ".R", sep ="")
+
+
+  #devtools::source_url(x)
+  response <- httr::GET(x)
+  response <- as.character(response)
+  response
+
+
+}
+
+
 utils::globalVariables(c("git_setup", "path", "value"))
 
 
