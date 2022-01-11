@@ -100,9 +100,6 @@ copycat_git <- function(file) {
 #' @return A character vector.
 #' @export
 #'
-#' @examples
-#' x <- "alfa,bravo,charlie,delta"
-#' strsplit(x, split = ",")
 
 
 copycat_gitplot <- function(file) {
@@ -136,9 +133,6 @@ copycat_gitplot <- function(file) {
 #' @return A character vector.
 #' @export
 #'
-#' @examples
-#' x <- "alfa,bravo,charlie,delta"
-#' strsplit(x, split = ",")
 
 
 copycat_gitcode <- function(file) {

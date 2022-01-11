@@ -15,7 +15,3 @@ A character vector.
 \description{
 copycat_gitcode
 }
-\examples{
-x <- "alfa,bravo,charlie,delta"
-strsplit(x, split = ",")
-}
