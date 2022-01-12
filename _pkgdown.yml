@@ -1,4 +1,4 @@
-url: https://github.com/edgar-treischl/CopyCat
+url: https://edgar-treischl.github.io/CopyCat/
 template:
   bootstrap: 5
   bootswatch: litera
@@ -11,7 +11,7 @@ navbar:
     right: github
 development:
   mode: auto
-
 authors:
   Edgar Treischl:
     href: https://www.edgar-treischl.de/
+

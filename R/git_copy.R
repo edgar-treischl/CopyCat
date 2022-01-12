@@ -126,6 +126,7 @@ copycat_gitplot <- function(file) {
 
 }
 
+
 #' copycat_gitcode
 #'
 #' @param file A character vector.
@@ -133,7 +134,6 @@ copycat_gitplot <- function(file) {
 #' @return A character vector.
 #' @export
 #'
-
 
 copycat_gitcode <- function(file) {
   author <- "edgar-treischl"
@@ -154,8 +154,9 @@ copycat_gitcode <- function(file) {
   response <- as.character(response)
   response
 
-
 }
+
+
 
 
 utils::globalVariables(c("git_setup", "path", "value"))

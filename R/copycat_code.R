@@ -13,9 +13,6 @@
 #'
 #' @return A text string that shows the code
 #' @export
-#'
-#' @examples
-#' copycat_code("pivot_wider")
 
 copycat_code <- function(x, data = CopyCatCode) {
   x <- gsub(" ", "", x, fixed = TRUE)

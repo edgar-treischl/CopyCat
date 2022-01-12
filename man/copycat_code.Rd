@@ -22,6 +22,3 @@ with the package name (package), a function (fun), and one with
 the code (code) to copy. If data = NULL, `copycat_code()` relies
 on the `CopyCatCode`.
 }
-\examples{
-copycat_code("pivot_wider")
-}
