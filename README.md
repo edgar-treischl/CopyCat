@@ -156,12 +156,14 @@ repository
 
 ``` r
 copycat_gitsearch()
-#> # A tibble: 3 × 1
+#> # A tibble: 5 × 1
 #>   git_scripts             
 #>   <chr>                   
 #> 1 R/Simpsons_Paradox.R    
-#> 2 R/boxplot_illustration.R
-#> 3 R/boxplot_pitfalls.R
+#> 2 R/anscombe_quartet.R    
+#> 3 R/boxplot_illustration.R
+#> 4 R/boxplot_pitfalls.R    
+#> 5 R/datasaurus.R
 ```
 
 The `copycat_git()` function copies the code to your clipboard.
