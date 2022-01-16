@@ -4,7 +4,7 @@
 \alias{copycat_gitsearch}
 \title{copycat_gitsearch}
 \usage{
-copycat_gitsearch(author, repository, branch = "master")
+copycat_gitsearch(author, repository, branch = "main")
 }
 \arguments{
 \item{author}{A character vector.}

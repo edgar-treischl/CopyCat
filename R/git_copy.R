@@ -8,18 +8,18 @@
 #'
 
 
-copycat_gitsearch <- function(author, repository, branch = "master") {
+copycat_gitsearch <- function(author, repository, branch = "main") {
 
   if (exists("git_setup") == TRUE) {
     author <- git_setup[1]
     repository <- git_setup[2]
     branch <- git_setup[3]
     gitlink2 <- paste("/git/trees/", branch, "?recursive=1", sep = "")
-    #gitlink2 <- "/git/trees/master?recursive=1"
+    #gitlink2 <- "/git/trees/main?recursive=1"
   } else {
     author <- "edgar-treischl"
-    repository <- "illustrations"
-    gitlink2 <- "/git/trees/master?recursive=1"
+    repository <- "Graphs"
+    gitlink2 <- "/git/trees/main?recursive=1"
   }
 
   gitlink1 <- "https://api.github.com/repos/"
@@ -66,8 +66,8 @@ copycat_git <- function(file) {
     branch <- git_setup[3]
   } else {
     author <- "edgar-treischl"
-    repository <- "illustrations"
-    branch <- "master"
+    repository <- "Graphs"
+    branch <- "main"
   }
   gitaddress1 <- "https://raw.githubusercontent.com/"
 
@@ -104,7 +104,7 @@ copycat_git <- function(file) {
 
 copycat_gitplot <- function(file) {
   author <- "edgar-treischl"
-  repository <- "Illustrations"
+  repository <- "Graphs"
 
   if(exists("git_setup") == TRUE){
     author <- git_setup[1]
@@ -112,7 +112,7 @@ copycat_gitplot <- function(file) {
   }
 
   x <- paste("https://raw.githubusercontent.com/",
-             author, "/", repository, "/master/R/",
+             author, "/", repository, "/main/R/",
              file, ".R", sep ="")
 
 
@@ -137,7 +137,7 @@ copycat_gitplot <- function(file) {
 
 copycat_gitcode <- function(file) {
   author <- "edgar-treischl"
-  repository <- "Illustrations"
+  repository <- "Graphs"
 
   if(exists("git_setup") == TRUE){
     author <- git_setup[1]
@@ -145,7 +145,7 @@ copycat_gitcode <- function(file) {
   }
 
   x <- paste("https://raw.githubusercontent.com/",
-             author, "/", repository, "/master/R/",
+             author, "/", repository, "/main/R/",
              file, ".R", sep ="")
 
 
