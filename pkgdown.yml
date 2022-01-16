@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 2.0.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   copycat: copycat.html
-last_built: 2022-01-12T15:25Z
+last_built: 2022-01-16T10:44Z
 urls:
   reference: https://edgar-treischl.github.io/CopyCat/reference
   article: https://edgar-treischl.github.io/CopyCat/articles
