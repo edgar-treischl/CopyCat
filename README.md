@@ -146,8 +146,8 @@ repository, and the branch name.
 
 ``` r
 git_setup <- c(author = "edgar-treischl",
-               repository = "Illustrations",
-               branch = "master")
+               repository = "Graphs",
+               branch = "main")
 ```
 
 The `copycat_gitsearch()` function uses the Github API to search within
@@ -159,11 +159,11 @@ copycat_gitsearch()
 #> # A tibble: 5 × 1
 #>   git_scripts             
 #>   <chr>                   
-#> 1 R/Simpsons_Paradox.R    
-#> 2 R/anscombe_quartet.R    
-#> 3 R/boxplot_illustration.R
-#> 4 R/boxplot_pitfalls.R    
-#> 5 R/datasaurus.R
+#> 1 R/anscombe_quartet.R    
+#> 2 R/boxplot_illustration.R
+#> 3 R/boxplot_pitfalls.R    
+#> 4 R/datasaurus.R          
+#> 5 R/simpson.R
 ```
 
 The `copycat_git()` function copies the code to your clipboard.

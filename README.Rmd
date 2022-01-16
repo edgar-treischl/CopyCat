@@ -101,8 +101,8 @@ CopyCat can also be connected to your Github repository to copy one of your old 
 
 ```{r}
 git_setup <- c(author = "edgar-treischl",
-               repository = "Illustrations",
-               branch = "master")
+               repository = "Graphs",
+               branch = "main")
 ```
 
 The `copycat_gitsearch()` function uses the Github API to search within your repository and returns all R scripts that live within the repository
