@@ -36,7 +36,7 @@ Install CopyCat from my github account with:
 devtools::install_github("edgar-treischl/CopyCat")
 ```
 
-## Copycat Examples
+## Example snippets
 
 I do not know how many times I have searched within my old scripts, especially for a `ggplot` command that I have been used many times, but I have forgotten the details. For this reason I started to create this package. CopyCat comes with a small data set (`CopyCatCode`) that contains minimal examples of several cheat sheets that run without further ado. For example, let's have a look at the minimal examples of the ggplot2 package. The `CopyCatCode` data provides the package name, the function, and the code of the minimal example:
 
@@ -95,67 +95,4 @@ copycat("bivatasa")
 #>[1] "💩 Sooorry, I've got no idea what you are looking for!"
 ```
 
-## Github
-
-CopyCat can also be connected to your Github repository to copy one of your old scripts. First, you have to setup the Github account details, that CopyCat will search. Provide the name of the author, the repository, and the branch name.
-
-```{r}
-git_setup <- c(author = "edgar-treischl",
-               repository = "Graphs",
-               branch = "main")
-```
-
-The `copycat_gitsearch()` function uses the Github API to search within your repository and returns all R scripts that live within the repository
-
-
-```{r}
-copycat_gitsearch()
-```
-
-The `copycat_git()` function copies the code to your clipboard.
-
-```{r, eval=FALSE}
-copycat_git("boxplot_illustration")
-#>[1] "🐈 Mission accomplished!"
-```
-
-## Help files and vignettes
-
-Often, all we need is code that runs to see how a functions work. For this reason, CopyCat to search within the R help files and vignettes, but returns only only the code listed in the vignette or the examples of the help file. The `copycat_helpsearch()` function list all help files of a package:
-
-
-```{r}
-copycat_helpsearch("tidyr")
-```
-
-And the `copycat_help()` function copies the examples section of a help file into your clipboard. Again, to see what we have actually copied, the corresponding `copycat_helpcode` function return only the code.
-
-```{r}
-#copycat_help() saves examples of the help files into your clipboard
-#copycat_help("tidyr", "drop_na")
-copycat_helpcode("tidyr", "drop_na")
-```
-
-The same function exist to search for and copy code from vignettes. The `copycat_vigsearch()` returns all availabe vignettes. 
-
-```{r}
-copycat_vigsearch("tidyr")
-```
-
-And `copycat_vignette()` copies the entire script. 
-
-```{r, eval=FALSE}
-copycat_vignette("tidyr", "pivot")
-#> "😎 copied that!"
-```
-
-To copy smaller code chunks to your clipboard is fine. Helpfiles and especially vignettes are much longer. Therefore, we have to create a new file and paste the code into your file. The `copycat_helpscript()`create a new script with the examples of the help file, while `copycat_vigscript()` does the same with the code from the vignette.
-
-```{r, eval=FALSE}
-copycat_helpscript("tidyr", "pivot")
-copycat_vigscript("tidyr", "pivot")
-```
-
-
-
-CopyCat has started as a personal package. Feel free to use it or manage your own code snippets with it. Just add your data frame with the same variable names of the small example data (`CopyCatCode`) and CopyCat handles your own snippets. 
+See the vignette for further examples how to use CopyCat for with github, help and other vignette files.  
