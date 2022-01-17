@@ -77,7 +77,7 @@
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"edgar-treischl/CopyCat"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="copycat-examples">Copycat Examples<a class="anchor" aria-label="anchor" href="#copycat-examples"></a>
+<h2 id="example-snippets">Example snippets<a class="anchor" aria-label="anchor" href="#example-snippets"></a>
 </h2>
 <p>I do not know how many times I have searched within my old scripts, especially for a <code>ggplot</code> command that I have been used many times, but I have forgotten the details. For this reason I started to create this package. CopyCat comes with a small data set (<code>CopyCatCode</code>) that contains minimal examples of several cheat sheets that run without further ado. For example, let’s have a look at the minimal examples of the ggplot2 package. The <code>CopyCatCode</code> data provides the package name, the function, and the code of the minimal example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -143,78 +143,7 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"bivatasa"</span><span class="op">)</span>
 <span class="co">#&gt;[1] "💩 Sooorry, I've got no idea what you are looking for!"</span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="github">Github<a class="anchor" aria-label="anchor" href="#github"></a>
-</h2>
-<p>CopyCat can also be connected to your Github repository to copy one of your old scripts. First, you have to setup the Github account details, that CopyCat will search. Provide the name of the author, the repository, and the branch name.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">git_setup</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>author <span class="op">=</span> <span class="st">"edgar-treischl"</span>,
-               repository <span class="op">=</span> <span class="st">"Graphs"</span>,
-               branch <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></code></pre></div>
-<p>The <code><a href="reference/copycat_gitsearch.html">copycat_gitsearch()</a></code> function uses the Github API to search within your repository and returns all R scripts that live within the repository</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_gitsearch.html">copycat_gitsearch</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 5 × 1</span>
-<span class="co">#&gt;   git_scripts             </span>
-<span class="co">#&gt;   &lt;chr&gt;                   </span>
-<span class="co">#&gt; 1 R/anscombe_quartet.R    </span>
-<span class="co">#&gt; 2 R/boxplot_illustration.R</span>
-<span class="co">#&gt; 3 R/boxplot_pitfalls.R    </span>
-<span class="co">#&gt; 4 R/datasaurus.R          </span>
-<span class="co">#&gt; 5 R/simpson.R</span></code></pre></div>
-<p>The <code><a href="reference/copycat_git.html">copycat_git()</a></code> function copies the code to your clipboard.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_git.html">copycat_git</a></span><span class="op">(</span><span class="st">"boxplot_illustration"</span><span class="op">)</span>
-<span class="co">#&gt;[1] "🐈 Mission accomplished!"</span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="help-files-and-vignettes">Help files and vignettes<a class="anchor" aria-label="anchor" href="#help-files-and-vignettes"></a>
-</h2>
-<p>Often, all we need is code that runs to see how a functions work. For this reason, CopyCat to search within the R help files and vignettes, but returns only only the code listed in the vignette or the examples of the help file. The <code><a href="reference/copycat_helpsearch.html">copycat_helpsearch()</a></code> function list all help files of a package:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_helpsearch.html">copycat_helpsearch</a></span><span class="op">(</span><span class="st">"tidyr"</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "billboard"         "chop"              "complete"         </span>
-<span class="co">#&gt;  [4] "construction"      "deprecated-se"     "drop_na"          </span>
-<span class="co">#&gt;  [7] "expand"            "expand_grid"       "extract"          </span>
-<span class="co">#&gt; [10] "extract_numeric"   "fill"              "fish_encounters"  </span>
-<span class="co">#&gt; [13] "full_seq"          "gather"            "hoist"            </span>
-<span class="co">#&gt; [16] "nest"              "nest_legacy"       "pack"             </span>
-<span class="co">#&gt; [19] "pipe"              "pivot_longer"      "pivot_longer_spec"</span>
-<span class="co">#&gt; [22] "pivot_wider"       "pivot_wider_spec"  "reexports"        </span>
-<span class="co">#&gt; [25] "relig_income"      "replace_na"        "separate"         </span>
-<span class="co">#&gt; [28] "separate_rows"     "smiths"            "spread"           </span>
-<span class="co">#&gt; [31] "table1"            "tidyr-package"     "tidyr_legacy"     </span>
-<span class="co">#&gt; [34] "tidyr_tidy_select" "uncount"           "unite"            </span>
-<span class="co">#&gt; [37] "us_rent_income"    "who"               "world_bank_pop"</span></code></pre></div>
-<p>And the <code><a href="reference/copycat_help.html">copycat_help()</a></code> function copies the examples section of a help file into your clipboard. Again, to see what we have actually copied, the corresponding <code>copycat_helpcode</code> function return only the code.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#copycat_help() saves examples of the help files into your clipboard</span>
-<span class="co">#copycat_help("tidyr", "drop_na")</span>
-<span class="fu"><a href="reference/copycat_helpcode.html">copycat_helpcode</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"drop_na"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "#Extracted examples:"                                       </span>
-<span class="co">#&gt; [2] "     library(dplyr)"                                        </span>
-<span class="co">#&gt; [3] "     df &lt;- tibble(x = c(1, 2, NA), y = c(\"a\", NA, \"b\"))"</span>
-<span class="co">#&gt; [4] "     df %&gt;% drop_na()"                                      </span>
-<span class="co">#&gt; [5] "     df %&gt;% drop_na(x)"                                     </span>
-<span class="co">#&gt; [6] "     "                                                      </span>
-<span class="co">#&gt; [7] "     vars &lt;- \"y\""                                         </span>
-<span class="co">#&gt; [8] "     df %&gt;% drop_na(x, any_of(vars))"                       </span>
-<span class="co">#&gt; [9] "     "</span></code></pre></div>
-<p>The same function exist to search for and copy code from vignettes. The <code><a href="reference/copycat_vigsearch.html">copycat_vigsearch()</a></code> returns all availabe vignettes.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_vigsearch.html">copycat_vigsearch</a></span><span class="op">(</span><span class="st">"tidyr"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "nest.R"        "pivot.R"       "programming.R" "rectangle.R"  </span>
-<span class="co">#&gt; [5] "tidy-data.R"   "in-packages.R"</span></code></pre></div>
-<p>And <code><a href="reference/copycat_vignette.html">copycat_vignette()</a></code> copies the entire script.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_vignette.html">copycat_vignette</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"pivot"</span><span class="op">)</span>
-<span class="co">#&gt; "😎 copied that!"</span></code></pre></div>
-<p>To copy smaller code chunks to your clipboard is fine. Helpfiles and especially vignettes are much longer. Therefore, we have to create a new file and paste the code into your file. The <code><a href="reference/copycat_helpscript.html">copycat_helpscript()</a></code>create a new script with the examples of the help file, while <code><a href="reference/copycat_vigscript.html">copycat_vigscript()</a></code> does the same with the code from the vignette.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat_helpscript.html">copycat_helpscript</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"pivot"</span><span class="op">)</span>
-<span class="fu"><a href="reference/copycat_vigscript.html">copycat_vigscript</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"pivot"</span><span class="op">)</span></code></pre></div>
-<p>CopyCat has started as a personal package. Feel free to use it or manage your own code snippets with it. Just add your data frame with the same variable names of the small example data (<code>CopyCatCode</code>) and CopyCat handles your own snippets.</p>
+<p>See the vignette for further examples how to use CopyCat for with github, help and other vignette files.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
