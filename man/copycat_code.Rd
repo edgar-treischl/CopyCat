@@ -19,6 +19,6 @@ A text string that shows the code
 for a code of a function. The function just returns that code.
 It expects that the data frame has three columns. A column
 with the package name (package), a function (fun), and one with
-the code (code) to copy. If data = NULL, `copycat_code()` relies
-on the `CopyCatCode`.
+the code (code) to copy. If data = NULL, the package search in the
+the internal data set `CopyCatCode`.
 }

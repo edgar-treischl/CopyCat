@@ -7,13 +7,18 @@
 copycat_package(x, data = CopyCatCode)
 }
 \arguments{
-\item{x}{A search string}
+\item{x}{A search string for the code snippet}
 
-\item{data}{Data}
+\item{data}{A data frame}
 }
 \value{
-A string
+A string with the package name and the function sends
+the code to load the library to the console.
 }
 \description{
-copycat_package
+Use `copycat_package()` expects a text string to search for
+corresponding package name. It expects that the data frame has three columns.
+A column with the package name (package), a function (fun), and one with
+the code (code) to copy. If data = NULL, the package search in the
+the internal data set `CopyCatCode`.
 }
