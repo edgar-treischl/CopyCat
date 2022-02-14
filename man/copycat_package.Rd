@@ -20,5 +20,5 @@ Use `copycat_package()` expects a text string to search for
 corresponding package name. It expects that the data frame has three columns.
 A column with the package name (package), a function (fun), and one with
 the code (code) to copy. If data = NULL, the package search in the
-the internal data set `CopyCatCode`.
+the internal data `CopyCatCode`.
 }

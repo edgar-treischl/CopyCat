@@ -13,5 +13,8 @@ copycat_gitplot(file)
 A character vector.
 }
 \description{
-copycat_gitplot
+Copy and run a file of a github repository. It expects that
+`git_setup` is set before running; a data frame with a column for the
+`author`, the `repository`, and the `branch` name; `copycat_gitplot` copies
+the code and sends it your console.
 }

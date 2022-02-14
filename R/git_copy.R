@@ -1,4 +1,10 @@
 #' copycat_gitsearch
+#'
+#' @description The function `copycat_gitsearch` returns the list of R files in a
+#' Github repository. It expects `author`, `repository`, and `branch` name to
+#' print the list of R files on Github. If all is left out, it returns the
+#' content of example repository.
+#'
 #' @param author A character vector.
 #' @param repository A character vector.
 #' @param branch A character vector.
@@ -25,8 +31,6 @@ copycat_gitsearch <- function(author, repository, branch = "main") {
   gitlink1 <- "https://api.github.com/repos/"
   gitsearch_name <- paste(gitlink1, author, "/", sep = "" )
 
-
-
   gitsearch <- paste(gitsearch_name, repository, gitlink2, sep = "" )
 
   response <- httr::GET(gitsearch)
@@ -34,23 +38,22 @@ copycat_gitsearch <- function(author, repository, branch = "main") {
   jsonRespParsed <- httr::content(response, as="parsed")
   modJson <- jsonRespParsed$tree
 
-  df <- modJson %>%
-    dplyr::bind_rows() %>%
-    dplyr::select(path)
-
+  df <- dplyr::bind_rows(modJson)
 
   git_scripts <- df$path
-  #r_pattern <- "\\w\\/"
-  #git_scripts <- stringr::str_replace(git_scripts, r_pattern, "")
   query_results <- tidyr::as_tibble(stringr::str_subset(git_scripts,
-  "R\\/\\w+\\.R$"))
-
-  query_results %>%
-    dplyr::select(git_scripts = value)
+                                                        "R\\/\\w+\\.R$"))
+  result <- dplyr::select(query_results, git_scripts = value)
+  result
 
 }
 
 #' copycat_git
+#'
+#' @description Copy a file of a github repository. It expects that
+#' `git_setup` is set before running, a data frame with column for the
+#' `author`, the `repository`, and the `branch` name; `copycat_git` copies
+#' the code to your clipboard.
 #'
 #' @param file A character vector.
 #'
@@ -95,6 +98,11 @@ copycat_git <- function(file) {
 
 #' copycat_gitplot
 #'
+#' @description Copy and run a file of a github repository. It expects that
+#' `git_setup` is set before running; a data frame with a column for the
+#' `author`, the `repository`, and the `branch` name; `copycat_gitplot` copies
+#' the code and sends it your console.
+#'
 #' @param file A character vector.
 #'
 #' @return A character vector.
@@ -130,6 +138,11 @@ copycat_gitplot <- function(file) {
 
 
 #' copycat_gitcode
+#'
+#' @description Inspect the code of a file from a github repository. It expects that
+#' `git_setup` is set before running; a data frame with a column for the
+#' `author`, the `repository`, and the `branch` name; `copycat_gitcode` returns
+#' the code as character.
 #'
 #' @param file A character vector.
 #'

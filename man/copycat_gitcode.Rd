@@ -13,5 +13,8 @@ copycat_gitcode(file)
 A character vector.
 }
 \description{
-copycat_gitcode
+Inspect the code of a file from a github repository. It expects that
+`git_setup` is set before running; a data frame with a column for the
+`author`, the `repository`, and the `branch` name; `copycat_gitcode` returns
+the code as character.
 }

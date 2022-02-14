@@ -17,5 +17,10 @@ copycat(x, data = CopyCatCode, run = FALSE)
 A string
 }
 \description{
-copycat
+`copycat()` uses a text string to search and copy
+a code snippet to your clipboard.
+It expects a data frame with three columns. A column
+with the package name (package), a function (fun), and one with
+the code (code) to copy. If data = NULL, the package search in the
+the internal data `CopyCatCode`.
 }

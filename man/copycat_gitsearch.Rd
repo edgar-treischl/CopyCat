@@ -17,5 +17,8 @@ copycat_gitsearch(author, repository, branch = "main")
 A character vector.
 }
 \description{
-copycat_gitsearch
+The function `copycat_gitsearch` returns the list of R files in a
+Github repository. It expects `author`, `repository`, and `branch` name to
+print the list of R files on Github. If all is left out, it returns the
+content of example repository.
 }

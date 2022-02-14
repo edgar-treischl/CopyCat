@@ -13,5 +13,8 @@ copycat_git(file)
 A character vector.
 }
 \description{
-copycat_git
+Copy a file of a github repository. It expects that
+`git_setup` is set before running, a data frame with column for the
+`author`, the `repository`, and the `branch` name; `copycat_git` copies
+the code to your clipboard.
 }

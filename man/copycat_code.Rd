@@ -16,9 +16,9 @@ A text string that shows the code
 }
 \description{
 `copycat_code()` uses a text string to search
-for a code of a function. The function just returns that code.
-It expects that the data frame has three columns. A column
+for a code snippet. The function just returns that code.
+It expects that you a data frame with three columns. A column
 with the package name (package), a function (fun), and one with
 the code (code) to copy. If data = NULL, the package search in the
-the internal data set `CopyCatCode`.
+the internal data `CopyCatCode`.
 }
