@@ -100,9 +100,11 @@ copycat_gitsearch()
 The `copycat_git()` function copies the code to your clipboard.
 
 ```{r, eval=FALSE}
-copycat_git("boxplot_illustration")
+copycat_git("datasaurus")
 #>[1] "🐈 Mission accomplished!"
 ```
+
+And `opycat_gitplot("datasaurus")` sends the code to your console.
 
 ## Help files and vignettes
 

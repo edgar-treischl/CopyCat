@@ -25,8 +25,8 @@ lazy cats, but it will also help new R learner to manage code snippets.
 Install CopyCat from my github account with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("edgar-treischl/CopyCat")
+devtools::install_github("edgar-treischl/CopyCat",
+                         build_vignettes = TRUE)
 ```
 
 ## Example snippets

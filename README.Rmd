@@ -31,9 +31,9 @@ CopyCat is a small and personal package to copy, paste, and view code snippets. 
 
 Install CopyCat from my github account with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("edgar-treischl/CopyCat")
+```{r, eval=FALSE}
+devtools::install_github("edgar-treischl/CopyCat",
+                         build_vignettes = TRUE)
 ```
 
 ## Example snippets
