@@ -1,7 +1,7 @@
 Package: copycat
 Type: Package
 Title: Search and copy your code snippets 
-Version: 0.1.0
+Version: 0.0.0.9000
 Authors@R: person("Edgar", "Treischl", 
                 email = "edgar.treischl@fau.de",
                 comment = c(ORCID = "0000-0001-5627-9125"),

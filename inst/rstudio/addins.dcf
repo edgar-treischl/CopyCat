@@ -1,4 +1,4 @@
-Name: Copycat Addin
+Name: Copycat
 Description: Search within your code base
 Binding: copycat_addin
 Interactive: true

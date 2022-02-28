@@ -9,7 +9,7 @@
 copycat_addin <- function() {
 
   ui <- miniUI::miniPage(
-    miniUI::gadgetTitleBar("CopyCat Addin"),
+    miniUI::gadgetTitleBar("CopyCat"),
     miniUI::miniContentPanel(
       fillRow(
         fillCol(
@@ -26,7 +26,7 @@ copycat_addin <- function() {
       )
     ),
     miniUI::miniButtonBlock(
-      actionButton("write", "Copy code", class = "btn-success")
+      actionButton("write", "Insert code", class = "btn-success")
     )
   )
 
@@ -36,7 +36,7 @@ copycat_addin <- function() {
       req(input$package_names)
       pname <- tolower(input$package_names)
 
-      df <-CopyCatCode
+      df <-copycat::CopyCatCode
 
       df <- dplyr::filter(df, package == pname)
       package_name <- df$fct
@@ -62,13 +62,15 @@ copycat_addin <- function() {
       pname <- input$package_names
       fun_name <- input$fun_name
 
-      df <-CopyCatCode
+      df <- copycat::CopyCatCode
 
       df <- dplyr::filter(df, package == pname)
       df <- dplyr::filter (df, fct == fun_name)
       txt <- df$code
 
-      paste0(txt, sep = "\n\n")
+      txt0 <-paste0("library(", pname, ")")
+
+      paste0(txt0,"\n", txt, sep = "\n\n")
 
     })
 
@@ -89,6 +91,7 @@ copycat_addin <- function() {
   runGadget(ui, server, viewer = viewer)
 
 }
+
 
 utils::globalVariables(c("package", "CopyCatCode"))
 
