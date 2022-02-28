@@ -28,7 +28,7 @@
     
     <a class="navbar-brand me-2" href="index.html">copycat</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>CopyCat is a small and personal package to copy, paste, and view code snippets. All provided code snippets are minimal examples based on code that runs with implemented data, which helps R learner to see how the code works. CopyCat uses three different code sources. First, CopyCat comes with a small data frame that includes code snippets from the cheat sheets of the <code>ggplot2</code> and the <code>tidyr</code> package. Of course, you can use your own code snippets as a data source as well. Second, CopyCat can fetch and copy code that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. Thus, CopyCat was built as a personal package for the lazy cats, but it will also help new R learner to manage code snippets.</p>
+<p>CopyCat is a small package to copy, paste, and view code snippets. All provided code snippets are minimal examples based on code that runs with implemented data, which helps R learner to see how the code works. CopyCat uses three different code sources. First, CopyCat comes with a small data frame that includes code snippets from the cheat sheets of the <code>ggplot2</code> and the <code>tidyr</code> package. Of course, you can use your own code snippets as a data source as well. Second, CopyCat can fetch and copy code that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. Thus, CopyCat was built as a personal package for the lazy cats, but it may help new R users to manage code snippets.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -77,73 +77,25 @@
                          build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example-snippets">Example snippets<a class="anchor" aria-label="anchor" href="#example-snippets"></a>
+<h2 id="explore-copycat-with-the-addin">Explore Copycat with the addin<a class="anchor" aria-label="anchor" href="#explore-copycat-with-the-addin"></a>
 </h2>
-<p>I do not know how many times I have searched within my old scripts, especially for a <code>ggplot</code> command that I have been used many times, but I have forgotten the details. For this reason I started to create this package. CopyCat comes with a small data set (<code>CopyCatCode</code>) that contains minimal examples of several cheat sheets that run without further ado. For example, let’s have a look at the minimal examples of the ggplot2 package. The <code>CopyCatCode</code> data provides the package name, the function, and the code of the minimal example:</p>
+<p>CopyCat comes with a small data set (<code>CopyCatCode</code>) that contains minimal examples of several cheat sheets that run without further ado. The <code>CopyCatCode</code> data provides the package name, the function, and the code of the minimal example. You can inspect the data and copy code with the <code><a href="reference/copycat_addin.html">copycat_addin()</a></code>. The adding shows all package names and code for the function within the viewer. Just pick one of the function and press <em>insert code</em>. RStudio will insert the code snippet in your script.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## load library and provide a data frame </span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edgar-treischl/CopyCat" class="external-link">copycat</a></span><span class="op">)</span>
-
-<span class="va">CopyCatCode</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">package</span> <span class="op">==</span> <span class="st">"ggplot2"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">fct</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 46 × 3</span>
-<span class="co">#&gt;    package fct          code                                                    </span>
-<span class="co">#&gt;    &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                                   </span>
-<span class="co">#&gt;  1 ggplot2 annotate     "ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co…</span>
-<span class="co">#&gt;  2 ggplot2 facet_grid   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…</span>
-<span class="co">#&gt;  3 ggplot2 facet_wrap   "ggplot(mtcars, aes(hp, mpg)) + \r\n  geom_blank() + \r…</span>
-<span class="co">#&gt;  4 ggplot2 geom_abline  "ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge…</span>
-<span class="co">#&gt;  5 ggplot2 geom_area    "ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")" </span>
-<span class="co">#&gt;  6 ggplot2 geom_bar     "ggplot(data=mpg, aes(x=class)) + geom_bar()"           </span>
-<span class="co">#&gt;  7 ggplot2 geom_bin2d   "ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid…</span>
-<span class="co">#&gt;  8 ggplot2 geom_boxplot "ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\…</span>
-<span class="co">#&gt;  9 ggplot2 geom_col     "ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co…</span>
-<span class="co">#&gt; 10 ggplot2 geom_contour "ggplot(faithfuld, aes(waiting, eruptions, z = density)…</span>
-<span class="co">#&gt; # … with 36 more rows</span></code></pre></div>
-<p>Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="reference/copycat.html">copycat()</a></code> function, it searches for the code snippet and saves the returned code to your clipboard. To see which code is returned, use the corresponding <code><a href="reference/copycat_code.html">copycat_code()</a></code> function.</p>
+<span class="fu">copycat</span><span class="fu">::</span><span class="fu"><a href="reference/copycat_addin.html">copycat_addin</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/addin.png" width="60%" style="display: block; margin: auto;"></p>
+<p>Of course, you do not have to use the adding to search and copy the code. Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="reference/copycat.html">copycat()</a></code> function, it searches for the code snippet and saves the returned code to your clipboard. To see code that is actually returned, use the corresponding <code><a href="reference/copycat_code.html">copycat_code()</a></code> function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># copycat("pivot_longer") saves the returned code to the clipboad</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edgar-treischl/CopyCat" class="external-link">copycat</a></span><span class="op">)</span>
+<span class="co"># copycat("pivot_longer") saves the returned code to the clipboad</span>
 <span class="co">#&gt;[1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = #&gt;'income', values_to = 'count')"</span>
 <span class="co"># copycat_code() let us inspect what the function returned </span>
 <span class="fu"><a href="reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"</span></code></pre></div>
-<p>Since the code is based on implemented data – as all examples listed in CopyCat – you can see how it works just by pasting it into your console. Alternatively, set the <code>run</code> option to <code>TRUE</code> and <code><a href="reference/copycat.html">copycat()</a></code> sends the code to your console.</p>
+<p>The code is based on implemented data – as all examples listed in CopyCat – you can see how it works just by pasting it into your console. Alternatively, set the <code>run</code> option to <code>TRUE</code> and <code><a href="reference/copycat.html">copycat()</a></code> sends the code to your console.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"pivot_longer"</span>, run <span class="op">=</span> <span class="cn">T</span> <span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">relig_income</span> <span class="op">%&gt;%</span> 
-  <span class="fu">pivot_longer</span><span class="op">(</span><span class="op">!</span><span class="va">religion</span>, names_to <span class="op">=</span> <span class="st">'income'</span>, values_to <span class="op">=</span> <span class="st">'count'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 180 × 3</span>
-<span class="co">#&gt;    religion income             count</span>
-<span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Agnostic &lt;$10k                 27</span>
-<span class="co">#&gt;  2 Agnostic $10-20k               34</span>
-<span class="co">#&gt;  3 Agnostic $20-30k               60</span>
-<span class="co">#&gt;  4 Agnostic $30-40k               81</span>
-<span class="co">#&gt;  5 Agnostic $40-50k               76</span>
-<span class="co">#&gt;  6 Agnostic $50-75k              137</span>
-<span class="co">#&gt;  7 Agnostic $75-100k             122</span>
-<span class="co">#&gt;  8 Agnostic $100-150k            109</span>
-<span class="co">#&gt;  9 Agnostic &gt;150k                 84</span>
-<span class="co">#&gt; 10 Agnostic Don't know/refused    96</span>
-<span class="co">#&gt; # … with 170 more rows</span></code></pre></div>
-<p>Of course, the minimal examples will only run if the package has been loaded and most of the time we know the package name. However, sometimes we have to look up the package name if we do not use a function often. The <code><a href="reference/copycat_package.html">copycat_package()</a></code> function returns the corresponding package name and sends the code <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(...)</a></code> directly to your console. The <code><a href="reference/copycat_package.html">copycat_package()</a></code> function copies the code also to the clipboard, since you want to insert it into your script as well.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#search for a package name, copies the load and loads the library</span>
-<span class="fu"><a href="reference/copycat_package.html">copycat_package</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span>
-<span class="co">#&gt;[1] [1] "🐈 Mission accomplished, loaded and copied library: tidyr"</span></code></pre></div>
-<p>If you add typos by accident, if you are not sure whether the function is written in small or large caps, you might be lucky and a similar match is found in the data.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#typos and other mistakes </span>
-<span class="fu"><a href="reference/copycat_package.html">copycat_package</a></span><span class="op">(</span><span class="st">"bivot"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Did you mean pivot_longer from the tidyr package?"</span>
-<span class="co">#&gt; [2] "Did you mean pivot_wider from the tidyr package?"</span></code></pre></div>
-<p>Unfortunately, this only works if a match is found at all.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"bivatasa"</span><span class="op">)</span>
-<span class="co">#&gt;[1] "💩 Sooorry, I've got no idea what you are looking for!"</span></code></pre></div>
-<p>See the vignette for further examples how to use CopyCat for with github, help and other vignette files.</p>
+<p>See the vignette for further examples how to use CopyCat with Github, help or vignette files.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
