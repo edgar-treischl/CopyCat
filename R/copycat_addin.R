@@ -3,10 +3,10 @@
 
 #' copycat_addin
 #' @import shiny
+#' @param data A data frame
 #' @export
 
-
-copycat_addin <- function() {
+copycat_addin <- function(data = CopyCatCode) {
 
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("CopyCat"),
@@ -36,7 +36,7 @@ copycat_addin <- function() {
       req(input$package_names)
       pname <- tolower(input$package_names)
 
-      df <-copycat::CopyCatCode
+      df <- data
 
       df <- dplyr::filter(df, package == pname)
       package_name <- df$fct
@@ -49,9 +49,9 @@ copycat_addin <- function() {
 
       checkboxGroupInput(
         inputId = "fun_name",
-        label = "",
+        label = "Functions:",
         choices = choices
-      )
+        )
     })
     #fetch code
     create_code <- reactive({
@@ -62,7 +62,7 @@ copycat_addin <- function() {
       pname <- input$package_names
       fun_name <- input$fun_name
 
-      df <- copycat::CopyCatCode
+      df <- data
 
       df <- dplyr::filter(df, package == pname)
       df <- dplyr::filter (df, fct == fun_name)

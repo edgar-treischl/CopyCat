@@ -4,7 +4,10 @@
 \alias{copycat_addin}
 \title{copycat_addin}
 \usage{
-copycat_addin()
+copycat_addin(data = CopyCatCode)
+}
+\arguments{
+\item{data}{A data frame}
 }
 \description{
 copycat_addin
