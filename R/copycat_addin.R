@@ -1,10 +1,17 @@
-#library(shiny)
-#library(miniUI)
 
 #' copycat_addin
+#'
+#' @description The `copycat_addin()` starts a small app in the viewer
+#' that shows the copycat or any data frame for Copycat. Just select an R package
+#' and the corresponding code snippet. Then press
+#' the button and the code will be insert into the current document at the
+#' location of the cursor. The `copycat_addin()` is inspired by parsnip addin,
+#' which write model specifications for you.
+#'
 #' @import shiny
 #' @param data A data frame
 #' @export
+#'
 
 copycat_addin <- function(data = CopyCatCode) {
 
@@ -52,6 +59,9 @@ copycat_addin <- function(data = CopyCatCode) {
         label = "Functions:",
         choices = choices
         )
+
+
+
     })
     #fetch code
     create_code <- reactive({
