@@ -45,8 +45,8 @@ CopyCat comes with a small data set (`CopyCatCode`) that contains minimal exampl
 copycat::copycat_addin()
 ```
 
-```{r, out.width='60%', echo=FALSE, fig.align='center'}
-knitr::include_graphics('man/figures/addin.png')
+```{r, out.width='90%', echo=FALSE, fig.align='center'}
+knitr::include_graphics('man/figures/addin_animated.gif')
 ```
 
 Of course, you do not have to use the adding to search and copy the code. Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copycat()` function, it searches for the code snippet and saves the returned code to your clipboard. To see code that is actually returned, use the corresponding `copycat_code()` function.

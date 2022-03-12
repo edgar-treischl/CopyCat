@@ -44,7 +44,7 @@ the function within the viewer. Just pick one of the function and press
 copycat::copycat_addin()
 ```
 
-<img src="man/figures/addin.png" width="60%" style="display: block; margin: auto;" />
+<img src="man/figures/addin_animated.gif" width="90%" style="display: block; margin: auto;" />
 
 Of course, you do not have to use the adding to search and copy the
 code. Let’s say you cannot remember how `pivot_longer` from the `tidyr`
