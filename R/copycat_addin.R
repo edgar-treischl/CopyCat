@@ -43,6 +43,12 @@ copycat_addin <- function(data = CopyCatCode) {
       req(input$package_names)
       pname <- tolower(input$package_names)
 
+      check <- exists("CopyCatCode")
+
+      if (check == FALSE) {
+        data <- copycat::CopyCatCode
+      }
+
       df <- data
 
       df <- dplyr::filter(df, package == pname)
