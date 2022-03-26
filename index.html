@@ -67,7 +67,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>CopyCat is a small package to copy, paste, and view code snippets. All provided code snippets are minimal examples based on code that runs with implemented data, which helps R learner to see how the code works. CopyCat uses three different code sources. First, CopyCat comes with a small data frame that includes code snippets from the cheat sheets of the <code>ggplot2</code> and the <code>tidyr</code> package. Of course, you can use your own code snippets as a data source as well. Second, CopyCat can fetch and copy code that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. Thus, CopyCat was built as a personal package for the lazy cats, but it may help new R users to manage code snippets.</p>
+<p>CopyCat is a small package to copy, paste, and view code snippets. All code snippets are minimal examples that run with implemented data, which helps R learner to see how it works. CopyCat was built as a personal package for the lazy cats, but it may help new R users to manage code snippets.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -79,23 +79,20 @@
 <div class="section level2">
 <h2 id="explore-copycat-with-the-addin">Explore Copycat with the addin<a class="anchor" aria-label="anchor" href="#explore-copycat-with-the-addin"></a>
 </h2>
-<p>CopyCat comes with a small data set (<code>CopyCatCode</code>) that contains minimal examples of several cheat sheets that run without further ado. The <code>CopyCatCode</code> data provides the package name, the function, and the code of the minimal example. You can inspect the data and copy code with the <code><a href="reference/copycat_addin.html">copycat_addin()</a></code>. The adding shows all package names and code for the function within the viewer. Just pick one of the function and press <em>insert code</em>. RStudio will insert the code snippet in your script.</p>
+<p>Use the addin to get an idea what Copycat does. CopyCat comes with a data (<code>CopyCatCode</code>) that includes code snippets from the cheat sheets of the <code>ggplot2</code> and the <code>tidyr</code> package (and some more). The data include the package name, the function name, and the code of the minimal example. Inspect the data and copy a code with the <code><a href="reference/copycat_addin.html">copycat_addin()</a></code> which runs a graphical interface to examine the data within the viewer. Pick a function and press the <em>insert code</em> button. RStudio inserts the code for you.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## load library and provide a data frame </span>
 <span class="fu">copycat</span><span class="fu">::</span><span class="fu"><a href="reference/copycat_addin.html">copycat_addin</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/addin_animated.gif" width="90%" style="display: block; margin: auto;"></p>
-<p>Of course, you do not have to use the adding to search and copy the code. Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="reference/copycat.html">copycat()</a></code> function, it searches for the code snippet and saves the returned code to your clipboard. To see code that is actually returned, use the corresponding <code><a href="reference/copycat_code.html">copycat_code()</a></code> function.</p>
+<p>So, you do not have to use the addin. Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="reference/copycat.html">copycat()</a></code> function. It look up the code snippet and saves the returned code to your clipboard. To inspect the code that is actually returned, the <code><a href="reference/copycat_code.html">copycat_code()</a></code> function might be handy.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edgar-treischl/CopyCat" class="external-link">copycat</a></span><span class="op">)</span>
-<span class="co"># copycat("pivot_longer") saves the returned code to the clipboad</span>
-<span class="co">#&gt;[1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = #&gt;'income', values_to = 'count')"</span>
-<span class="co"># copycat_code() let us inspect what the function returned </span>
+<span class="co"># copycat("pivot_longer") saves the returned code to the clipboard</span>
+<span class="co">#"🐱 copied that!"</span>
+<span class="co"># copycat_code() let you inspect what the function returned </span>
 <span class="fu"><a href="reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "🐈 Your code: pivot_longer(table4a, cols = 2:3, names_to =\"year\",\r\n             values_to = \"cases\")"</span></code></pre></div>
-<p>The code is based on implemented data – as all examples listed in CopyCat – you can see how it works just by pasting it into your console. Alternatively, set the <code>run</code> option to <code>TRUE</code> and <code><a href="reference/copycat.html">copycat()</a></code> sends the code to your console.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"pivot_longer"</span>, run <span class="op">=</span> <span class="cn">T</span> <span class="op">)</span></code></pre></div>
-<p>See the vignette for further examples how to use CopyCat with Github, help or vignette files.</p>
+<p>Overall, CopyCat has three different code sources. First, CopyCat comes with data from the cheat sheets. Of course, you can use your own code snippets as well. Second, CopyCat can also fetch and copy code for you that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. See the vignette for further examples how to use CopyCat with Github, help or vignette files.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
