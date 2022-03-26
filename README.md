@@ -59,7 +59,7 @@ library(copycat)
 #>[1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = #>'income', values_to = 'count')"
 # copycat_code() let us inspect what the function returned 
 copycat_code("pivot_longer")
-#> [1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"
+#> [1] "🐈 Your code: pivot_longer(table4a, cols = 2:3, names_to =\"year\",\r\n             values_to = \"cases\")"
 ```
 
 The code is based on implemented data – as all examples listed in
