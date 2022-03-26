@@ -91,7 +91,7 @@
 <span class="co">#&gt;[1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = #&gt;'income', values_to = 'count')"</span>
 <span class="co"># copycat_code() let us inspect what the function returned </span>
 <span class="fu"><a href="reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = 'income', values_to = 'count')"</span></code></pre></div>
+<span class="co">#&gt; [1] "🐈 Your code: pivot_longer(table4a, cols = 2:3, names_to =\"year\",\r\n             values_to = \"cases\")"</span></code></pre></div>
 <p>The code is based on implemented data – as all examples listed in CopyCat – you can see how it works just by pasting it into your console. Alternatively, set the <code>run</code> option to <code>TRUE</code> and <code><a href="reference/copycat.html">copycat()</a></code> sends the code to your console.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"pivot_longer"</span>, run <span class="op">=</span> <span class="cn">T</span> <span class="op">)</span></code></pre></div>
