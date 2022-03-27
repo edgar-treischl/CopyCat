@@ -23,7 +23,7 @@ library(dplyr)
 
 ## Examples
 
-I do not know how many times I have searched within my old scripts, especially for a `ggplot` command that I have been used many times, but I have forgotten the details. For this reason I started to create this package. CopyCat comes with a small data set (`CopyCatCode`) that contains minimal examples of several cheat sheets that run without further ado. For example, let's have a look at the minimal examples of the ggplot2 package. The `CopyCatCode` data provides the package name, the function, and the code of the minimal example:
+I don't know how many times I searched my old scripts, especially for a `ggplot` code snippet, but I have forgotten the details about this little piece of worl. For this reason, I started to create this package. CopyCat comes with a small data set (`CopyCatCode`) that contains minimal examples of several cheat sheet examples that run without further ado. For example, let's have a look at code examples for the ggplot2 package. The `CopyCatCode` data provides the package name, the function, and the code of a minimal example:
 
 ```{r}
 ## load library and provide a data frame 
@@ -35,7 +35,7 @@ CopyCatCode %>%
 ```
 
 
-Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copycat()` function, it searches for the code snippet and saves the returned code to your clipboard. To see which code is returned, use the corresponding `copycat_code()` function.
+Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copycat()` function, it searches the code snippet and copies the returned code to your clipboard. To see which code is returned, use the corresponding `copycat_code()` function.
 
 ```{r, eval=TRUE}
 # copycat("pivot_longer") saves the returned code to the clipboad
@@ -45,7 +45,7 @@ copycat_code("pivot_longer")
 
 ```
 
-Since the code is based on implemented data -- as all examples listed in CopyCat -- you can see how it works just by pasting it into your console. Alternatively, set the `run` option to `TRUE` and `copycat()` sends the code to your console.
+Since the code is based on implemented data -- as all examples listed in CopyCat -- you can see how a function works by pasting it into your console. Alternatively, set the `run` option to `TRUE` and `copycat()` sends the code to your console.
 
 ```{r, eval=FALSE}
 copycat("pivot_longer", run = T )
@@ -82,7 +82,7 @@ copycat("bivatasa")
 
 ## Github
 
-CopyCat can also be connected to your Github repository to copy one of your old scripts. First, you have to setup the Github account details, that CopyCat will search. Provide the name of the author, the repository, and the branch name.
+CopyCat can also be connected to your Github repository to copy one of your old scripts. First, you have to setup the Github account details, that CopyCat needs to search. Provide the name of the author, the repository, and the branch name.
 
 ```{r}
 git_setup <- c(author = "edgar-treischl",
@@ -90,14 +90,14 @@ git_setup <- c(author = "edgar-treischl",
                branch = "main")
 ```
 
-The `copycat_gitsearch()` function uses the Github API to search within your repository and returns all R scripts that live within the repository
+The `copycat_gitsearch()` function uses the Github API to search within your repository and shows all R scripts that live within the repository.
 
 
 ```{r}
 copycat_gitsearch()
 ```
 
-The `copycat_git()` function copies the code to your clipboard.
+The `copycat_git()` function copies the code of a script to your clipboard.
 
 ```{r, eval=FALSE}
 copycat_git("datasaurus")
@@ -108,14 +108,14 @@ And `opycat_gitplot("datasaurus")` sends the code to your console.
 
 ## Help files and vignettes
 
-Often, all we need is code that runs to see how a functions work. For this reason, CopyCat to search within the R help files and vignettes, but returns only only the code listed in the vignette or the examples of the help file. The `copycat_helpsearch()` function list all help files of a package:
+Often, all we need is code that runs to see how a functions work. For this reason, CopyCat to search within the R help files and vignettes, but returns only the code listed in the vignette or the examples of the help file. The `copycat_helpsearch()` function list all help files of a package:
 
 
 ```{r}
 copycat_helpsearch("tidyr")
 ```
 
-And the `copycat_help()` function copies the examples section of a help file into your clipboard. Again, to see what we have actually copied, the corresponding `copycat_helpcode` function return only the code.
+And the `copycat_help()` function copies the examples section of a help file to your clipboard. Again, the `copycat_helpcode` function return only the code to see what we have copied.
 
 ```{r}
 #copycat_help() saves examples of the help files into your clipboard
@@ -123,26 +123,25 @@ And the `copycat_help()` function copies the examples section of a help file int
 copycat_helpcode("tidyr", "drop_na")
 ```
 
-The same function exist to search for and copy code from vignettes. The `copycat_vigsearch()` returns all availabe vignettes. 
+The same function exist to search for and copy code from vignettes. The `copycat_vigsearch()` returns all available vignettes of a package. 
 
 ```{r}
 copycat_vigsearch("tidyr")
 ```
 
-And `copycat_vignette()` copies the entire script. 
+And `copycat_vignette()` copies the script. 
 
 ```{r, eval=FALSE}
 copycat_vignette("tidyr", "pivot")
 #> "😎 copied that!"
 ```
 
-To copy smaller code chunks to your clipboard is fine. Helpfiles and especially vignettes are much longer. Therefore, we have to create a new file and paste the code into your file. The `copycat_helpscript()`create a new script with the examples of the help file, while `copycat_vigscript()` does the same with the code from the vignette.
+To copy smaller code chunks to your clipboard is fine. Help files and vignettes are much longer. Therefore, we may want to create a new file and paste the code into a new file. The `copycat_helpscript()`create a new R script and copies the examples of the help file into that script, while `copycat_vigscript()` does the same with the code from the vignette.
 
 ```{r, eval=FALSE}
 copycat_helpscript("tidyr", "pivot")
 copycat_vigscript("tidyr", "pivot")
 ```
-
 
 
 CopyCat has started as a personal package. Feel free to use it or manage your own code snippets with it. Just add your data frame with the same variable names of the small example data (`CopyCatCode`) and CopyCat handles your own snippets. 

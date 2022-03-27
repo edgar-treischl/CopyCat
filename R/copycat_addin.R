@@ -23,8 +23,8 @@ copycat_addin <- function(data = CopyCatCode) {
           radioButtons(
             "package_names",
             label = h3("Package"),
-            choices = c("base", "tidyr", "pwr", "dotwhisker",
-                        "ggplot2", "forcats")
+            choices = c("base", "dotwhisker", "forcats", "ggplot2",
+                        "pwr", "tidyr")
           )
         ),
         fillRow(
@@ -52,6 +52,7 @@ copycat_addin <- function(data = CopyCatCode) {
       df <- data
 
       df <- dplyr::filter(df, package == pname)
+      df <- dplyr::arrange(df, fct)
       package_name <- df$fct
 
     })
