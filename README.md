@@ -8,11 +8,10 @@
 [![R-CMD-check](https://github.com/edgar-treischl/CopyCat/workflows/R-CMD-check/badge.svg)](https://github.com/edgar-treischl/CopyCat/actions)
 <!-- badges: end -->
 
-CopyCat is a small package to copy, paste, and view code snippets. All
-code snippets are minimal examples that run with implemented data, which
-helps R learner to see how it works. CopyCat was built as a personal
-package for the lazy cats, but it may help new R users to manage code
-snippets.
+CopyCat is a small package to copy, paste, and manage code snippets.
+CopyCat comes with code snippets (minimal examples) that run with
+implemented data. CopyCat was built as a personal package for the lazy
+cats, but it may help (new) R users to manage code snippets.
 
 ## Installation
 
@@ -27,12 +26,13 @@ devtools::install_github("edgar-treischl/CopyCat",
 
 Use the addin to get an idea what Copycat does. CopyCat comes with a
 data (`CopyCatCode`) that includes code snippets from the cheat sheets
-of the `ggplot2` and the `tidyr` package (and some more). The data
-include the package name, the function name, and the code of the minimal
-example. Inspect the data and copy a code with the `copycat_addin()`
-which runs a graphical interface to examine the data within the viewer.
-Pick a function and press the *insert code* button. RStudio inserts the
-code for you.
+of the `ggplot2` and the `tidyr` package (and some more).
+
+The data include the package name, the function name, and the code of
+the minimal example. Inspect the data and copy a code with the
+`copycat_addin()` which runs a graphical interface to examine the data
+within the viewer. Pick a function and press the *insert code* button.
+RStudio inserts the code for you.
 
 ``` r
 ## load library and provide a data frame 
