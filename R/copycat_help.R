@@ -142,13 +142,78 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
 }
 
 
+#' copycat_description
+#'
+#' @param pkg A search string
+#' @param fn A search string
+#' @param html HTML or txt
+#' @return Function description
+#' @export
+#'
 
+copycat_description <- function(pkg, fn, html = FALSE) {
+  txt <- switch(fn,
+                fct_infreq   = "fct_inorder",
+                fct_reorder2 = "fct_reorder",
+                geom_errorbar = "geom_linerange",
+                geom_pointrange = "geom_linerange",
+                geom_crossbar = "geom_linerange",
+                geom_col = "geom_bar",
+                geom_line = "geom_path",
+                geom_step = "geom_path",
+                geom_vline = "geom_abline",
+                geom_hline = "geom_abline",
+                geom_label = "geom_text",
+                geom_raster = "geom_tile",
+                geom_contour_filled = "geom_contour",
+                legend.position = "theme",
+                geom_freqpoly = "geom_histogram",
+                scale_fill_manual = "scale_manual",
+                scale_fill_brewer = "scale_colour_brewer",
+                scale_fill_gradient = "scale_colour_gradient",
+                scale_fill_gradient2 = "scale_colour_gradient",
+                geom_area    = "geom_ribbon"
+  )
+
+  linked <- is.null(txt)
+
+  if (linked == FALSE) {
+    fn <- txt
+  }
+
+  rdbfile <- file.path(find.package(pkg), "help", pkg)
+  fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
+  rdb <- fetchRdDB(rdbfile, key = fn)
+
+
+  to <- "html"
+  convertor <- switch(to,
+                      txt   = tools::Rd2txt,
+                      html  = tools::Rd2HTML,
+                      latex = tools::Rd2latex,
+                      ex    = tools::Rd2ex
+  )
+
+
+
+  f <- function(x) capture.output(convertor(x))
+  text <- f(rdb)
+
+  if (html == TRUE) {
+    text <- grep("<h2>", text, value= T)
+    text
+  } else {
+    text <- grep("<h2>", text, value= T)
+    text <- rvest::minimal_html(text)
+    text <- rvest::html_text2(text)
+    text
+  }
+
+
+}
 
 
 utils::globalVariables(c("utils", "capture.output", "z"))
-
-
-
 
 
 

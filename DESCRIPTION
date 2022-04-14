@@ -22,6 +22,7 @@ Imports:
     qpdf,
     rmarkdown,
     rstudioapi,
+    rvest,
     shiny,
     stringr,
     tidyr,

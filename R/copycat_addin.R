@@ -1,4 +1,3 @@
-
 #' copycat_addin
 #'
 #' @description The `copycat_addin()` starts a small app in the viewer
@@ -16,19 +15,48 @@
 copycat_addin <- function(data = CopyCatCode) {
 
   ui <- miniUI::miniPage(
+    tags$head(
+      # Note the wrapping of the string in HTML()
+      tags$style(HTML("
+      .gadget-title{
+        color: black;
+        font-size: larger;
+        font-weight: bold;
+      }
+      .btn-success {
+        background-color: #f4511e;
+        border: none;
+        color: white;
+        opacity: 0.6;
+        transition: 0.3s;
+        font-size: medium;
+      }
+      .btn-success:hover {
+        opacity: 1;
+        background-color: #f4511e;
+      }"))
+    ),
     miniUI::gadgetTitleBar("CopyCat"),
     miniUI::miniContentPanel(
+      h4("Pick a package and a function:"),
       fillRow(
         fillCol(
           radioButtons(
             "package_names",
-            label = h3("Package"),
+            label = NULL,
             choices = c("base", "dotwhisker", "forcats", "ggplot2",
-                        "pwr", "tidyr")
+                        "stats", "tidyr")
           )
         ),
-        fillRow(
-          miniUI::miniContentPanel(uiOutput("package_choices"))
+        miniUI::miniContentPanel(
+          fillCol(
+            uiOutput("package_choices")
+          )
+        ),
+          miniUI::miniContentPanel(
+            p("Description:"),
+            uiOutput("tooltip")
+
         )
       )
     ),
@@ -53,7 +81,47 @@ copycat_addin <- function(data = CopyCatCode) {
 
       df <- dplyr::filter(df, package == pname)
       df <- dplyr::arrange(df, fct)
+
+      #desc <- stringr::str_c(df$fct, "::", df$description)
       package_name <- df$fct
+
+    })
+    #create des functions
+    get_des <- reactive({
+      req(input$package_names)
+      req(input$fun_name)
+      pname <- tolower(input$package_names)
+      fname <- tolower(input$fun_name)
+
+      #check <- exists("CopyCatCode")
+
+      #if (check == FALSE) {
+        #data <- copycat::CopyCatCode
+      #}
+
+      #df <- data
+
+      #df <- dplyr::filter(df, package == pname)
+      #df <- dplyr::filter(df, fct == fname)
+      #df <- dplyr::arrange(df, fct)
+
+      #desc <- df$description
+
+      desc <- copycat::copycat_description(pname, fname)
+
+      test_na <- is.na(fname)
+      test_na <- test_na[1]
+
+      test_length <- length(fname) > 1
+
+      #package_name <- df$fct
+      if (test_na == TRUE) {
+        cat("Sorry, no description available.")
+      } else if (test_length == TRUE) {
+        cat("Pick one my friend.")
+      } else {
+        print(desc)
+      }
 
     })
     #make checkbox from it
@@ -61,13 +129,17 @@ copycat_addin <- function(data = CopyCatCode) {
 
       choices <- get_fun()
 
-      checkboxGroupInput(
+      radioButtons(
         inputId = "fun_name",
-        label = "Functions:",
+        label = NULL,
         choices = choices
         )
 
+    })
 
+    #output tooltip
+    output$tooltip <- renderUI({
+      get_des()
 
     })
     #fetch code
@@ -114,6 +186,7 @@ copycat_addin <- function(data = CopyCatCode) {
   runGadget(ui, server, viewer = viewer)
 
 }
+
 
 
 utils::globalVariables(c("package", "CopyCatCode"))
