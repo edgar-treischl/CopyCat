@@ -84,7 +84,7 @@
 <span class="va">CopyCatCode</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">package</span> <span class="op">==</span> <span class="st">"ggplot2"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">arrange</span><span class="op">(</span><span class="va">fct</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 46 × 3</span></span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 43 × 3</span></span>
 <span class="co">#&gt;    package fct          code                                                    </span>
 <span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                   </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ggplot2 annotate     <span style="color: #949494;">"</span>ggplot(mtcars, aes(x=mpg)) +   \r\n  geom_histogram(co…</span>
@@ -93,11 +93,11 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> ggplot2 geom_abline  <span style="color: #949494;">"</span>ggplot(mpg, aes(cty, hwy))+\r\n  geom_point()+\r\n  ge…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> ggplot2 geom_area    <span style="color: #949494;">"</span>ggplot(mpg, aes(hwy))+\r\n  geom_area(stat = \"bin\")<span style="color: #949494;">"</span> </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> ggplot2 geom_bar     <span style="color: #949494;">"</span>ggplot(data=mpg, aes(x=class)) + geom_bar()<span style="color: #949494;">"</span>           </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> ggplot2 geom_bin2d   <span style="color: #949494;">"</span>ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> ggplot2 geom_bin_2d  <span style="color: #949494;">"</span>ggplot(diamonds, aes(carat, price))+ geom_bin2d(binwid…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> ggplot2 geom_boxplot <span style="color: #949494;">"</span>ggplot(diamonds, aes(x=color, y=carat, fill=color)) +\…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> ggplot2 geom_col     <span style="color: #949494;">"</span>ggplot(diamonds, aes(x=color, y=carat)) +\r\n  geom_co…</span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> ggplot2 geom_contour <span style="color: #949494;">"</span>ggplot(faithfuld, aes(waiting, eruptions, z = density)…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 36 more rows</span></span></code></pre></div>
+<span class="co">#&gt; <span style="color: #949494;"># … with 33 more rows</span></span></code></pre></div>
 <p>Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="../reference/copycat.html">copycat()</a></code> function, it searches the code snippet and copies the returned code to your clipboard. To see which code is returned, use the corresponding <code><a href="../reference/copycat_code.html">copycat_code()</a></code> function.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># copycat("pivot_longer") saves the returned code to the clipboad</span>
