@@ -1,4 +1,4 @@
-#' copycat_helpsearch
+#' Examine the help files of a package.
 #'
 #' @param pkg A search string
 #'
@@ -14,7 +14,7 @@ copycat_helpsearch <- function(pkg){
   names(rdb)
 }
 
-#' copycat_helpcode
+#' Inspect the code from the help files.
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -59,7 +59,7 @@ copycat_helpcode <- function(pkg, fn) {
   }
 }
 
-#' copycat_help
+#' Copy code from the help file.
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -107,7 +107,7 @@ copycat_help <- function(pkg, fn) {
 }
 
 
-#' copycat_helpscript
+#' Create a new script with the code from the help file.
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -142,7 +142,7 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
 }
 
 
-#' copycat_description
+#' Get the function description.
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -166,13 +166,21 @@ copycat_description <- function(pkg, fn, html = FALSE) {
                 geom_label = "geom_text",
                 geom_raster = "geom_tile",
                 geom_contour_filled = "geom_contour",
+                geom_area    = "geom_ribbon",
                 legend.position = "theme",
                 geom_freqpoly = "geom_histogram",
                 scale_fill_manual = "scale_manual",
                 scale_fill_brewer = "scale_colour_brewer",
                 scale_fill_gradient = "scale_colour_gradient",
                 scale_fill_gradient2 = "scale_colour_gradient",
-                geom_area    = "geom_ribbon"
+                str_sort = "str_order",
+                str_split_fixed = "str_split",
+                str_squish = "str_trim",
+                str_to_lower = "case",
+                str_to_title = "case",
+                str_to_upper = "case",
+                str_view_all = "str_view",
+                str_which = "str_subset"
   )
 
   linked <- is.null(txt)

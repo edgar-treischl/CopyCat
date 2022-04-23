@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_vignettes.R
 \name{copycat_vignette}
 \alias{copycat_vignette}
-\title{copycat_vignette}
+\title{Copy the code of a vignette.}
 \usage{
 copycat_vignette(pkg, vig)
 }
@@ -15,5 +15,5 @@ copycat_vignette(pkg, vig)
 A string
 }
 \description{
-copycat_vignette
+Copy the code of a vignette.
 }

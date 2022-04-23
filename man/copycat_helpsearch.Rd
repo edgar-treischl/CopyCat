@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_help.R
 \name{copycat_helpsearch}
 \alias{copycat_helpsearch}
-\title{copycat_helpsearch}
+\title{Examine the help files of a package.}
 \usage{
 copycat_helpsearch(pkg)
 }
@@ -13,5 +13,5 @@ copycat_helpsearch(pkg)
 A list
 }
 \description{
-copycat_helpsearch
+Examine the help files of a package.
 }

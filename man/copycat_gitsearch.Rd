@@ -2,7 +2,7 @@
 % Please edit documentation in R/git_copy.R
 \name{copycat_gitsearch}
 \alias{copycat_gitsearch}
-\title{copycat_gitsearch}
+\title{Search R files within a GitHub directory.}
 \usage{
 copycat_gitsearch(author, repository, branch = "main")
 }

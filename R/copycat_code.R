@@ -1,4 +1,4 @@
-#' copycat_code
+#' Inspect code from CopyCat.
 #'
 #' @description `copycat_code()` uses a text string to search
 #' for a code snippet. The function just returns that code.
@@ -37,7 +37,7 @@ copycat_code <- function(x, data = CopyCatCode) {
 
 }
 
-#' copycat_package
+#' Find the corresponding package of a function.
 #'
 #' @description Use `copycat_package()` expects a text string to search for
 #' corresponding package name. It expects that the data frame has three columns.
@@ -83,7 +83,7 @@ copycat_package <- function(x, data = CopyCatCode) {
 
 
 
-#' copycat
+#' Copy code from CopyCat.
 #'
 #' @description `copycat()` uses a text string to search and copy
 #' a code snippet to your clipboard.

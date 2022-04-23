@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_help.R
 \name{copycat_description}
 \alias{copycat_description}
-\title{copycat_description}
+\title{Get the function description.}
 \usage{
 copycat_description(pkg, fn, html = FALSE)
 }
@@ -17,5 +17,5 @@ copycat_description(pkg, fn, html = FALSE)
 Function description
 }
 \description{
-copycat_description
+Get the function description.
 }

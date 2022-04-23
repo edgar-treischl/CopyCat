@@ -1,4 +1,4 @@
-#' copycat_gitsearch
+#' Search R files within a GitHub directory.
 #'
 #' @description The function `copycat_gitsearch` returns the list of R files in a
 #' Github repository. It expects `author`, `repository`, and `branch` name to
@@ -48,7 +48,7 @@ copycat_gitsearch <- function(author, repository, branch = "main") {
 
 }
 
-#' copycat_git
+#' Copy code from the Github repository.
 #'
 #' @description Copy a file of a github repository. It expects that
 #' `git_setup` is set before running, a data frame with column for the
@@ -96,7 +96,7 @@ copycat_git <- function(file) {
 }
 
 
-#' copycat_gitplot
+#' Run code from a Github directory.
 #'
 #' @description Copy and run a file of a github repository. It expects that
 #' `git_setup` is set before running; a data frame with a column for the
@@ -137,7 +137,7 @@ copycat_gitplot <- function(file) {
 }
 
 
-#' copycat_gitcode
+#' Inspect R code from a Github repository.
 #'
 #' @description Inspect the code of a file from a github repository. It expects that
 #' `git_setup` is set before running; a data frame with a column for the

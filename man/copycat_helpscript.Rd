@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_help.R
 \name{copycat_helpscript}
 \alias{copycat_helpscript}
-\title{copycat_helpscript}
+\title{Create a new script with the code from the help file.}
 \usage{
 copycat_helpscript(pkg, fn, path = NULL)
 }
@@ -17,5 +17,5 @@ copycat_helpscript(pkg, fn, path = NULL)
 A string
 }
 \description{
-copycat_helpscript
+Create a new script with the code from the help file.
 }

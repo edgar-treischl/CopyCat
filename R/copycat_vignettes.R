@@ -1,4 +1,4 @@
-#' copycat_vigsearch
+#' Examine the vignettes of a package.
 #'
 #' @param pkg A search string
 #'
@@ -14,7 +14,7 @@ copycat_vigsearch <- function(pkg) {
 }
 
 
-#' copycat_vignette
+#' Copy the code of a vignette.
 #'
 #' @param pkg A search string
 #' @param vig A search string
@@ -41,7 +41,7 @@ copycat_vignette <- function(pkg, vig) {
   }
 }
 
-#' copycat_vigscript
+#' Create a new script with the code from the vignette.
 #'
 #' @param pkg A search string
 #' @param vig A search string

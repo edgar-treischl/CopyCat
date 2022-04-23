@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_code.R
 \name{copycat}
 \alias{copycat}
-\title{copycat}
+\title{Copy code from CopyCat.}
 \usage{
 copycat(x, data = CopyCatCode, run = FALSE)
 }

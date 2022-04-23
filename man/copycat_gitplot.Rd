@@ -2,7 +2,7 @@
 % Please edit documentation in R/git_copy.R
 \name{copycat_gitplot}
 \alias{copycat_gitplot}
-\title{copycat_gitplot}
+\title{Run code from a Github directory.}
 \usage{
 copycat_gitplot(file)
 }

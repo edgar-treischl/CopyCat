@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_vignettes.R
 \name{copycat_vigscript}
 \alias{copycat_vigscript}
-\title{copycat_vigscript}
+\title{Create a new script with the code from the vignette.}
 \usage{
 copycat_vigscript(pkg, vig)
 }
@@ -15,5 +15,5 @@ copycat_vigscript(pkg, vig)
 A string
 }
 \description{
-copycat_vigscript
+Create a new script with the code from the vignette.
 }

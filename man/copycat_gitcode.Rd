@@ -2,7 +2,7 @@
 % Please edit documentation in R/git_copy.R
 \name{copycat_gitcode}
 \alias{copycat_gitcode}
-\title{copycat_gitcode}
+\title{Inspect R code from a Github repository.}
 \usage{
 copycat_gitcode(file)
 }

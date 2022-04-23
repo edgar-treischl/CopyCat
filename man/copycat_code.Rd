@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_code.R
 \name{copycat_code}
 \alias{copycat_code}
-\title{copycat_code}
+\title{Inspect code from CopyCat.}
 \usage{
 copycat_code(x, data = CopyCatCode)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_code.R
 \name{copycat_package}
 \alias{copycat_package}
-\title{copycat_package}
+\title{Find the corresponding package of a function.}
 \usage{
 copycat_package(x, data = CopyCatCode)
 }

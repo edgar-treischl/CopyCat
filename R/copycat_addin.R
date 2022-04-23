@@ -1,4 +1,4 @@
-#' copycat_addin
+#' Manage code snippets via the `copycat_addin()`.
 #'
 #' @description The `copycat_addin()` starts a small app in the viewer
 #' that shows the copycat or any data frame for Copycat. Just select an R package
@@ -16,7 +16,6 @@ copycat_addin <- function(data = CopyCatCode) {
 
   ui <- miniUI::miniPage(
     tags$head(
-      # Note the wrapping of the string in HTML()
       tags$style(HTML("
       .gadget-title{
         color: black;
@@ -41,12 +40,7 @@ copycat_addin <- function(data = CopyCatCode) {
       h4("Pick a package and a function:"),
       fillRow(
         fillCol(
-          radioButtons(
-            "package_names",
-            label = NULL,
-            choices = c("base", "dotwhisker", "forcats", "ggplot2",
-                        "stats", "tidyr")
-          )
+          uiOutput("package_names")
         ),
         miniUI::miniContentPanel(
           fillCol(
@@ -66,7 +60,22 @@ copycat_addin <- function(data = CopyCatCode) {
   )
 
   server <- function(input, output, session) {
+
     #create list with functions
+    get_packages <- reactive({
+      check <- exists("CopyCatCode")
+
+      if (check == FALSE) {
+        data <- copycat::CopyCatCode
+      }
+
+      df <- data
+      df <- dplyr::arrange(df, package)
+      df <- dplyr::pull(df, package)
+      df <- stringi::stri_unique(df)
+
+    })
+
     get_fun <- reactive({
       req(input$package_names)
       pname <- tolower(input$package_names)
@@ -86,6 +95,7 @@ copycat_addin <- function(data = CopyCatCode) {
       package_name <- df$fct
 
     })
+
     #create des functions
     get_des <- reactive({
       req(input$package_names)
@@ -124,7 +134,7 @@ copycat_addin <- function(data = CopyCatCode) {
       }
 
     })
-    #make checkbox from it
+    #make checkbox for package choices
     output$package_choices <- renderUI({
 
       choices <- get_fun()
@@ -136,8 +146,20 @@ copycat_addin <- function(data = CopyCatCode) {
         )
 
     })
+    #make checkboxes for listed packages
+    output$package_names <- renderUI({
 
-    #output tooltip
+      included_packages <- get_packages()
+
+      radioButtons(
+        inputId = "package_names",
+        label = NULL,
+        choices = included_packages
+      )
+
+    })
+
+    #print a tooltip/description of a function
     output$tooltip <- renderUI({
       get_des()
 

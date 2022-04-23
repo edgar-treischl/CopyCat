@@ -5,7 +5,7 @@
 \alias{CopyCatCode}
 \title{Copy Cat Code:}
 \format{
-A data frame with 41 rows and 3 variables:
+A data frame with 99 rows and 3 variables:
 \describe{
   \item{package}{The R package name}
   \item{fct}{The function name}

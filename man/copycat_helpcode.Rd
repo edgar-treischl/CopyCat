@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_help.R
 \name{copycat_helpcode}
 \alias{copycat_helpcode}
-\title{copycat_helpcode}
+\title{Inspect the code from the help files.}
 \usage{
 copycat_helpcode(pkg, fn)
 }
@@ -15,5 +15,5 @@ copycat_helpcode(pkg, fn)
 A string
 }
 \description{
-copycat_helpcode
+Inspect the code from the help files.
 }
