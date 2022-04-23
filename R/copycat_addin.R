@@ -1,7 +1,7 @@
 #' Manage code snippets via the `copycat_addin()`.
 #'
-#' @description The `copycat_addin()` starts a small app in the viewer
-#' that shows the copycat or any data frame for Copycat. Just select an R package
+#' @description The `copycat_addin()` opens a gadget shiny app
+#' that shows the copycat or your data for Copycat. Just select an R package
 #' and the corresponding code snippet. Then press
 #' the button and the code will be insert into the current document at the
 #' location of the cursor. The `copycat_addin()` is inspired by parsnip addin,
