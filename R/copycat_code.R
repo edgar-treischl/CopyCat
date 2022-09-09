@@ -110,20 +110,20 @@ copycat <- function(x, data = CopyCatCode, run = FALSE) {
   searchstring <- x
   result <- agrep(searchstring, CopyCatCode$fct)
 
-  shit_emoji <- "\U0001F4A9"
-  cat_emoji <- "\U0001F431"
+  #shit_emoji <- "\U0001F4A9"
+  #cat_emoji <- "\U0001F431"
 
   if (length(code) == 1L) {
     if(run == TRUE){
       rstudioapi::sendToConsole(code, execute = run, echo = run, focus = run)
-      print(paste(cat_emoji, "copied that!"))
+      print(paste("Copied that!"))
       clipr::write_clip(code)
     }else{
-      print(paste(cat_emoji, "copied that!"))
+      print(paste("Copied that!"))
       clipr::write_clip(code)
     }
   } else if (length(code) == 0L & length(result) == 0L ) {
-    paste(shit_emoji, "Sooorry, I've got no idea what you are looking for!")
+    paste("Sooorry, I've got no idea what you are looking for!")
   } else {
     print(paste("Did you mean ", CopyCatCode$fct[result],"?", sep = ""))
   }
