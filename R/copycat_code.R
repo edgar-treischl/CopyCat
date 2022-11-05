@@ -119,7 +119,7 @@ copycat <- function(x, data = CopyCatCode, run = FALSE) {
       print(paste("Copied that!"))
       clipr::write_clip(code)
     }else{
-      print(paste("Copied that!"))
+      print(paste("Copied that:", code))
       clipr::write_clip(code)
     }
   } else if (length(code) == 0L & length(result) == 0L ) {
