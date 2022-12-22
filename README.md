@@ -15,7 +15,7 @@ cats, but it may help (new) R users to manage code snippets.
 
 ## Installation
 
-Install CopyCat from my github account with:
+Install CopyCat from my GitHub account with:
 
 ``` r
 devtools::install_github("edgar-treischl/CopyCat",

@@ -27,7 +27,7 @@ CopyCat is a small package to copy, paste, and manage code snippets. CopyCat com
 
 ## Installation
 
-Install CopyCat from my github account with:
+Install CopyCat from my GitHub account with:
 
 ```{r, eval=FALSE}
 devtools::install_github("edgar-treischl/CopyCat",
