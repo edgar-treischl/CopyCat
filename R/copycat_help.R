@@ -14,50 +14,50 @@ copycat_helpsearch <- function(pkg){
   names(rdb)
 }
 
-#' Inspect the code from the help files.
-#'
-#' @param pkg A search string
-#' @param fn A search string
-#'
-#' @return A string
-#' @export
-#'
+# Inspect the code from the help files.
+#
+# @param pkg A search string
+# @param fn A search string
+#
+# @return A string
+# @export
 
-copycat_helpcode <- function(pkg, fn) {
-  rdbfile <- file.path(find.package(pkg), "help", pkg)
-  fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
-  rdb <- fetchRdDB(rdbfile, key = fn)
-  to <- "txt"
-  convertor <- switch(to,
-                      txt   = tools::Rd2txt,
-                      html  = tools::Rd2HTML,
-                      latex = tools::Rd2latex,
-                      ex    = tools::Rd2ex
-  )
 
-  f <- function(x) capture.output(convertor(x))
-  text <- f(rdb)
-  pattern <- "_\bE_\bx_\ba_\bm_\bp_\bl_\be_\bs:"
-  empty_cells <- ""
-  replace <- "#Extracted examples:"
-  detect <- stringr::str_detect(text, pattern)
-  empty <- stringr::str_detect(text, empty_cells)
-
-  df <- data.frame(x = text,
-                   y = detect,
-                   z = empty)
-
-  df$x <- stringr::str_replace(df$x, pattern, replace)
-  df <- subset(df, z == TRUE)
-  pos_data <- which(df$y == TRUE)
-  if (length(pos_data) == 0) {
-    print("Nothing there to show.")
-  } else {
-    lx <- length(df$x)
-    x <- df$x[pos_data:lx]
-    return(x)
-  }
-}
+# copycat_helpcode <- function(pkg, fn) {
+#   rdbfile <- file.path(find.package(pkg), "help", pkg)
+#   fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
+#   rdb <- fetchRdDB(rdbfile, key = fn)
+#   to <- "txt"
+#   convertor <- switch(to,
+#                       txt   = tools::Rd2txt,
+#                       html  = tools::Rd2HTML,
+#                       latex = tools::Rd2latex,
+#                       ex    = tools::Rd2ex
+#   )
+#
+#   f <- function(x) capture.output(convertor(x))
+#   text <- f(rdb)
+#   pattern <- "_\bE_\bx_\ba_\bm_\bp_\bl_\be_\bs:"
+#   empty_cells <- ""
+#   replace <- "#Extracted examples:"
+#   detect <- stringr::str_detect(text, pattern)
+#   empty <- stringr::str_detect(text, empty_cells)
+#
+#   df <- data.frame(x = text,
+#                    y = detect,
+#                    z = empty)
+#
+#   df$x <- stringr::str_replace(df$x, pattern, replace)
+#   df <- subset(df, z == TRUE)
+#   pos_data <- which(df$y == TRUE)
+#   if (length(pos_data) == 0) {
+#     print("Nothing there to show.")
+#   } else {
+#     lx <- length(df$x)
+#     x <- df$x[pos_data:lx]
+#     return(x)
+#   }
+# }
 
 #' Copy code from the help file.
 #'

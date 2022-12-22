@@ -115,12 +115,12 @@ Often, all we need is code that runs to see how a functions work. For this reaso
 copycat_helpsearch("tidyr")
 ```
 
-And the `copycat_help()` function copies the examples section of a help file to your clipboard. Again, the `copycat_helpcode` function return only the code to see what we have copied.
+And the `copycat_help()` function copies the examples section of a help file to your clipboard. Or use the `example` function from `base` R to inspect them in the console.
+
 
 ```{r}
-#copycat_help() saves examples of the help files into your clipboard
-#copycat_help("tidyr", "drop_na")
-copycat_helpcode("tidyr", "drop_na")
+#example saves examples of the online help files into your clipboard
+example("drop_na", package = "tidyr")
 ```
 
 The same function exist to search for and copy code from vignettes. The `copycat_vigsearch()` returns all available vignettes of a package. 
