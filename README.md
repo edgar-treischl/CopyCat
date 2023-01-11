@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# CopyCat <img src="man/figures/sticker.png" align="right" width="200" alt="Copy Cat - Edgar Treischl"/>
+# CopyCat <img src="man/figures/logo.png" align="right" width="200" alt="Copy Cat - Edgar Treischl"/>
 
 <!-- badges: start -->
 
