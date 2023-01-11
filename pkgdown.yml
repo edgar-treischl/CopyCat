@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   copycat: copycat.html
-last_built: 2022-12-22T17:36Z
+last_built: 2023-01-11T14:32Z
 urls:
   reference: https://edgar-treischl.github.io/CopyCat/reference
   article: https://edgar-treischl.github.io/CopyCat/articles
