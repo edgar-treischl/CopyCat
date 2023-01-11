@@ -3,8 +3,8 @@ template:
   bootstrap: 5
   bootswatch: litera
   bslib:
-    base_font: {google: "Quattrocento Sans"}
-    heading_font: {google: "Quattrocento Sans"}
+    base_font: {google: "Solway"}
+    heading_font: {google: "Solway"}
 navbar:
   structure:
     left:
