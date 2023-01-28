@@ -52,7 +52,9 @@ copycat_addin <- function(data = CopyCatCode) {
       h4("Pick a package and a function:"),
       fillRow(
         fillCol(
-          uiOutput("package_names")
+          uiOutput("package_names"),
+          br(),
+          imageOutput("photo")
         ),
         miniUI::miniContentPanel(
           fillCol(
@@ -60,10 +62,9 @@ copycat_addin <- function(data = CopyCatCode) {
           )
         ),
         miniUI::miniContentPanel(
-          uiOutput("tooltip"),
+          h4(uiOutput("tooltip")),
+          br(),
           verbatimTextOutput("preview"),
-          fillCol(
-            imageOutput("photo"))
         )
       )
     ),
@@ -91,8 +92,8 @@ copycat_addin <- function(data = CopyCatCode) {
         #src = file.path("docs", paste0(input$package_names, ".png")),
         src = path,
         contentType = "image/png",
-        width = 100,
-        height = 100
+        width = 125,
+        height = 125
       )
     }, deleteFile = FALSE)
 
