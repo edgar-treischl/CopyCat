@@ -52,9 +52,7 @@ copycat_addin <- function(data = CopyCatCode) {
       h4("Pick a package and a function:"),
       fillRow(
         fillCol(
-          uiOutput("package_names"),
-          br(),
-          imageOutput("photo")
+          uiOutput("package_names")
         ),
         miniUI::miniContentPanel(
           fillCol(
@@ -65,6 +63,7 @@ copycat_addin <- function(data = CopyCatCode) {
           h4(uiOutput("tooltip")),
           br(),
           verbatimTextOutput("preview"),
+          imageOutput("photo"),
         )
       )
     ),
