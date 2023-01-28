@@ -5,7 +5,7 @@
 #' It expects a data frame with three columns. A column
 #' with the package name (package), the function (fun) name, and
 #' the code (code) to copy. As long as you do not provide a data frame, the function
-#' search witing the `CopyCatCode` data.
+#' search within the `CopyCatCode` data.
 #'
 #' @param x A search string for the function
 #' @param data A data frame
