@@ -152,6 +152,11 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
 #'
 
 copycat_description <- function(pkg, fn, html = FALSE) {
+
+  if (fn == "str") {
+    return("Compactly Display the Structure of an Arbitrary R Object")
+  }
+
   txt <- switch(fn,
                 fct_infreq   = "fct_inorder",
                 fct_reorder2 = "fct_reorder",
@@ -180,6 +185,18 @@ copycat_description <- function(pkg, fn, html = FALSE) {
                 str_to_title = "case",
                 str_to_upper = "case",
                 str_view_all = "str_view",
+                map_chr = "map",
+                map_dbl = "map",
+                map_dfc = "map",
+                map_dfr = "map",
+                map_int = "map",
+                map_lgl = "map",
+                gsub = "grep",
+                walk = "map",
+                signif = "round",
+                tolower = "chartr",
+                toupper = "chartr",
+                rownames_to_column = "rownames",
                 str_which = "str_subset"
   )
 
@@ -191,7 +208,12 @@ copycat_description <- function(pkg, fn, html = FALSE) {
 
   rdbfile <- file.path(find.package(pkg), "help", pkg)
   fetchRdDB <- utils::getFromNamespace("fetchRdDB", "tools")
-  rdb <- fetchRdDB(rdbfile, key = fn)
+  #rdb <- fetchRdDB(rdbfile, key = fn)
+  rdb <- try(fetchRdDB(rdbfile, key = fn), silent = TRUE)
+
+  if (class(rdb) == "try-error") {
+    return("Description title not available")
+  }
 
 
   to <- "html"
