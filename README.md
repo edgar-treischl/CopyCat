@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/edgar-treischl/CopyCat/workflows/R-CMD-check/badge.svg)](https://github.com/edgar-treischl/CopyCat/actions)
+[![R-CMD-check](https://github.com/edgar-treischl/CopyCat/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edgar-treischl/CopyCat/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 CopyCat is a small package to copy, paste, and manage code snippets.
