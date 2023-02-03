@@ -52,6 +52,9 @@
     <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_help.html</loc>
   </url>
   <url>
+    <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_helpcode.html</loc>
+  </url>
+  <url>
     <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_helpscript.html</loc>
   </url>
   <url>
@@ -59,6 +62,12 @@
   </url>
   <url>
     <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_package.html</loc>
+  </url>
+  <url>
+    <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_random.html</loc>
+  </url>
+  <url>
+    <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_runhelp.html</loc>
   </url>
   <url>
     <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_vignette.html</loc>
@@ -70,6 +79,12 @@
     <loc>https://edgar-treischl.github.io/CopyCat/reference/copycat_vigsearch.html</loc>
   </url>
   <url>
+    <loc>https://edgar-treischl.github.io/CopyCat/reference/final_fun.html</loc>
+  </url>
+  <url>
     <loc>https://edgar-treischl.github.io/CopyCat/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://edgar-treischl.github.io/CopyCat/reference/pic_fun.html</loc>
   </url>
 </urlset>
