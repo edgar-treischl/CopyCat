@@ -12,6 +12,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
+    cli,
     clipr,
     devtools,
     dplyr,
@@ -19,6 +20,7 @@ Imports:
     httr,
     magrittr,
     miniUI,
+    purrr,
     qpdf,
     rmarkdown,
     rstudioapi,

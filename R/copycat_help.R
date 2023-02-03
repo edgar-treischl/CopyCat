@@ -1,5 +1,7 @@
-#' Examine the help files of a package.
+#' copycat_helpsearch
 #'
+#' @description The copycat_random function returns
+#' the help files of a package.
 #' @param pkg A search string
 #'
 #' @return A list
@@ -59,7 +61,10 @@ copycat_helpsearch <- function(pkg){
 #   }
 # }
 
-#' Copy code from the help file.
+#' copycat_help
+#' @description The copycat_help function
+#' copies the code from the help file.
+#'
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -107,8 +112,10 @@ copycat_help <- function(pkg, fn) {
 }
 
 
-#' Create a new script with the code from the help file.
+#' copycat_helpscript
 #'
+#' @description The function create a new script
+#' with the code from the help file.
 #' @param pkg A search string
 #' @param fn A search string
 #' @param path A search string
@@ -142,8 +149,9 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
 }
 
 
-#' Get the function description.
+#' copycat_description
 #'
+#' @description The function returns the function description.
 #' @param pkg A search string
 #' @param fn A search string
 #' @param html HTML or txt
