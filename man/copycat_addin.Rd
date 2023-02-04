@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_addin.R
 \name{copycat_addin}
 \alias{copycat_addin}
-\title{Manage code snippets via the `copycat_addin()`.}
+\title{Manage code snippets via the copycat addin}
 \usage{
 copycat_addin(data = CopyCatCode)
 }

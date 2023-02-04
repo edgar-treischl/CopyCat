@@ -3,7 +3,7 @@
 \docType{data}
 \name{CopyCatCode}
 \alias{CopyCatCode}
-\title{Copy Cat Code:}
+\title{The CopyCat Code}
 \format{
 A data frame with 99 rows and 3 variables:
 \describe{

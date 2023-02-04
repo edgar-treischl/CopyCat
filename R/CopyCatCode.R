@@ -1,4 +1,4 @@
-#' Copy Cat Code:
+#' The CopyCat Code
 #'
 #' A data set containing minimal examples of code snippets
 #' that run with implemented data.

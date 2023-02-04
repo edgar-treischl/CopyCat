@@ -2,7 +2,7 @@
 % Please edit documentation in R/random.R
 \name{copycat_runhelp}
 \alias{copycat_runhelp}
-\title{copycat_runhelp}
+\title{Run code from the help files}
 \usage{
 copycat_runhelp(pkg, fn)
 }
@@ -15,5 +15,6 @@ copycat_runhelp(pkg, fn)
 A string
 }
 \description{
-copycat_runhelp
+The function runs code from the help file (examples)
+and sends it to the console
 }

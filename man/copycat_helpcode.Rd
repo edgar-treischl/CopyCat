@@ -2,7 +2,7 @@
 % Please edit documentation in R/random.R
 \name{copycat_helpcode}
 \alias{copycat_helpcode}
-\title{copycat_helpcode}
+\title{Copy the help code examples}
 \usage{
 copycat_helpcode(pkg, fn)
 }
@@ -15,7 +15,6 @@ copycat_helpcode(pkg, fn)
 A string
 }
 \description{
-The copycat_helpcode function copies
-the code from the help file (examples) from an R package
-the line types in R
+The function copies
+the code from the help file (examples) of an R package
 }

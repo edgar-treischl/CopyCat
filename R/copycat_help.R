@@ -1,4 +1,4 @@
-#' copycat_helpsearch
+#' Inspect help files
 #'
 #' @description The copycat_random function returns
 #' the help files of a package.
@@ -112,7 +112,7 @@ copycat_help <- function(pkg, fn) {
 }
 
 
-#' copycat_helpscript
+#' Copy the code of the help file
 #'
 #' @description The function create a new script
 #' with the code from the help file.
@@ -149,7 +149,7 @@ copycat_helpscript <- function(pkg, fn, path = NULL){
 }
 
 
-#' copycat_description
+#' Copy the function description
 #'
 #' @description The function returns the function description.
 #' @param pkg A search string

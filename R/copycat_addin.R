@@ -1,4 +1,4 @@
-#' Manage code snippets via the `copycat_addin()`.
+#' Manage code snippets via the copycat addin
 #'
 #' @description The `copycat_addin()` creates a shiny gadget
 #' to work with the Copycat or your data for Copycat. Pick an R package

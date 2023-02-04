@@ -2,7 +2,7 @@
 % Please edit documentation in R/copycat_vignettes.R
 \name{copycat_vigsearch}
 \alias{copycat_vigsearch}
-\title{Examine the vignettes of a package.}
+\title{Examine the vignettes of a package}
 \usage{
 copycat_vigsearch(pkg)
 }
@@ -13,5 +13,5 @@ copycat_vigsearch(pkg)
 A list
 }
 \description{
-Examine the vignettes of a package.
+The function returns all available vignettes of a package.
 }

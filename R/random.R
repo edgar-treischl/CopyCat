@@ -1,7 +1,6 @@
-#' copycat_helpcode
-#' @description The copycat_helpcode function copies
-#' the code from the help file (examples) from an R package
-#' the line types in R
+#' Copy the help code examples
+#' @description The function copies
+#' the code from the help file (examples) of an R package
 #' @param pkg A search string
 #' @param fn A search string
 #'
@@ -49,9 +48,9 @@ copycat_helpcode <- function(pkg, fn) {
 
 
 
-#' copycat_runhelp
-#' @description The copycat_runhelp function copies
-#' the code from the help file (examples) and sends it to the console
+#' Run code from the help files
+#' @description The function runs code from the help file (examples)
+#' and sends it to the console
 #'
 #' @param pkg A search string
 #' @param fn A search string
@@ -107,50 +106,8 @@ copycat_runhelp <- function(pkg, fn) {
 
 
 
-#' pic_fun
-
-pic_fun <- function() {
-  all_packs <- as.data.frame(installed.packages()[,c(1,3)])
-  names <- all_packs$Package
-  name <- sample(names, 1)
-
-  weird_R_packages <- c("R.oo", "plumber")
-
-  help_names <- copycat::copycat_helpsearch(name)
-  help_name <- sample(help_names, 1)
-  help_name
-  #foad(package = name, fun = help_name)
-  #foad(package = "osmdata", fun = "osmdata_sf")
-  df <- data.frame(package = name, fun = help_name)
-  return(df)
-}
-
-
-#' final_fun
-
-
-final_fun <- function() {
-  df <- pic_fun()
-  x <- try(copycat_helpcode(pkg = df$package, fn = df$fun),
-           silent = TRUE)
-  notrun <- stringr::str_detect(x, "Not run")
-  limit <- which(notrun == TRUE)
-
-  while (class(x) == "try-error" | length(limit > 0)) {
-    df <- pic_fun()
-    x <- try(copycat_helpcode(pkg = df$package, fn = df$fun),
-             silent = TRUE)
-    notrun <- stringr::str_detect(x, "Not run")
-    limit <- which(notrun == TRUE)
-  }
-  return(df)
-
-}
-
-
-
-#' copycat_random
-#' @description The copycat_random function copies
+#' Run code from a random package and function
+#' @description The function copies
 #' an example code from a help file randomly and sends
 #' it to the console
 #' @return A string

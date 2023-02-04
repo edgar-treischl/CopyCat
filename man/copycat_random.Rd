@@ -2,7 +2,7 @@
 % Please edit documentation in R/random.R
 \name{copycat_random}
 \alias{copycat_random}
-\title{copycat_helpcode}
+\title{Run code from a random package and function}
 \usage{
 copycat_random()
 }
@@ -10,5 +10,7 @@ copycat_random()
 A string
 }
 \description{
-copycat_helpcode
+The function copies
+an example code from a help file randomly and sends
+it to the console
 }
