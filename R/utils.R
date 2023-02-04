@@ -1,4 +1,8 @@
-#pic_fun picks a package and a function randomly
+#' pic_fun picks a package and a function randomly
+#' @noRd
+#' @keywords internal
+#'
+#'
 
 pic_fun <- function() {
   all_packs <- as.data.frame(installed.packages()[,c(1,3)])
@@ -7,7 +11,7 @@ pic_fun <- function() {
 
   weird_R_packages <- c("R.oo", "plumber")
 
-  help_names <- copycat::copycat_helpsearch(name)
+  help_names <- copycat_helpsearch(name)
   help_name <- sample(help_names, 1)
   help_name
   #foad(package = name, fun = help_name)
@@ -17,8 +21,10 @@ pic_fun <- function() {
 }
 
 
-#final_fun checks if example are available and should be run
-
+#' final_fun checks if example are available and should be run
+#' @noRd
+#' @keywords internal
+#' @export
 final_fun <- function() {
   df <- pic_fun()
   x <- try(copycat_helpcode(pkg = df$package, fn = df$fun),

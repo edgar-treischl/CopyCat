@@ -2,7 +2,7 @@
 % Please edit documentation in R/git_copy.R
 \name{copycat_git}
 \alias{copycat_git}
-\title{Copy code from the Github repository.}
+\title{Copy code from the Github repository}
 \usage{
 copycat_git(file)
 }

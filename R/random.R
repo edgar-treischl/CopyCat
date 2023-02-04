@@ -62,7 +62,7 @@ copycat_helpcode <- function(pkg, fn) {
 
 
 copycat_runhelp <- function(pkg, fn) {
-  txt <- copycat::copycat_description(pkg, fn)
+  txt <- copycat_description(pkg, fn)
   #examples <- copycat_helpcode(pkg = package, fn = fun)
 
   examples <- try(copycat_helpcode(pkg = pkg, fn = fn),
