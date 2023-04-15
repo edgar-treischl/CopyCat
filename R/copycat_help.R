@@ -219,7 +219,7 @@ copycat_description <- function(pkg, fn, html = FALSE) {
   #rdb <- fetchRdDB(rdbfile, key = fn)
   rdb <- try(fetchRdDB(rdbfile, key = fn), silent = TRUE)
 
-  if (class(rdb) == "try-error") {
+  if (is(rdb, "try-error") == TRUE) {
     return("Description title not available")
   }
 

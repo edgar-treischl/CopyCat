@@ -68,7 +68,7 @@ copycat_runhelp <- function(pkg, fn) {
   examples <- try(copycat_helpcode(pkg = pkg, fn = fn),
                   silent = TRUE)
 
-  if (class(examples) == "try-error") {
+  if (is(examples, "try-error") == TRUE) {
     cli::cli_abort("No help file available.")
   } else {
     x <- purrr::as_vector(examples)

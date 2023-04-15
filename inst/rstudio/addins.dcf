@@ -2,3 +2,8 @@ Name: Copycat
 Description: Search within your code base
 Binding: copycat_addin
 Interactive: true
+
+Name: AskGPT
+Description: Search within your code base
+Binding: askgpt_addin
+Interactive: true

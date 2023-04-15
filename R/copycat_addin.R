@@ -263,7 +263,13 @@ copycat_addin <- function(data = CopyCatCode) {
 }
 
 
+
+
 utils::globalVariables(c("package", "CopyCatCode"))
+
+
+
+
 
 
 # copycat_addin_old <- function(data = CopyCatCode) {

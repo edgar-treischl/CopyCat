@@ -14,23 +14,22 @@ LazyData: true
 Imports: 
     cli,
     clipr,
-    devtools,
+    curl,
     dplyr,
     fs,
     httr,
+    keyring,
     magrittr,
+    methods,
     miniUI,
     purrr,
-    qpdf,
-    rmarkdown,
     rstudioapi,
     rvest,
     shiny,
     stringi,
     stringr,
     tidyr,
-    tools,
-    utf8
+    tools
 Depends: 
     R (>= 3.2.0)
 Suggests: 
