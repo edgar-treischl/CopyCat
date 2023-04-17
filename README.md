@@ -42,8 +42,8 @@ inserts the code for you. The gif shows how the RStudio addin works.
 The package has a built-interface to get help from ChatGTP. To connect
 with ChatGTP, go to
 <a href="https://openai.com/" class="uri">openai</a>, create an account
-and generate API keys. Next create an object called (`gtp_api`) for your
-API key or use the `keyring` package to save the key savely.
+and generate an API key. Next create an object called (`gtp_api`) for
+your API key or use the `keyring` package to save the key savely.
 
 ``` r
 #SET API Key as gtp_api
