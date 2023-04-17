@@ -77,7 +77,8 @@
 </div>
 <!-- badges: start -->
 
-<p>CopyCat is a small package to copy, paste, and manage code snippets. CopyCat comes with code snippets (minimal examples) that run with implemented data. CopyCat was built as a personal package for the lazy cats, but it may help (new) R users to manage code snippets.</p>
+<!-- badges: end -->
+<p>CopyCat is a small package to copy, paste, and manage code snippets. CopyCat comes with code snippets (minimal examples) that run with implemented data. In addition, CopyCat provides an interface to ask ChatGPT questions about R. CopyCat was built as a personal package for the lazy cats, but it may help (new) R users to learn R.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -87,23 +88,69 @@
 <span>                         build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="explore-copycat-with-the-addin">Explore Copycat with the addin<a class="anchor" aria-label="anchor" href="#explore-copycat-with-the-addin"></a>
+<h2 id="explore-the-copycat-code-snippets">Explore the Copycat code snippets<a class="anchor" aria-label="anchor" href="#explore-the-copycat-code-snippets"></a>
 </h2>
-<p>Use the addin to get an idea what Copycat does. CopyCat comes with a data (<code>CopyCatCode</code>) that includes code snippets from the cheat sheets of the <code>ggplot2</code> and the <code>tidyr</code> package (and some more).</p>
-<p>The data include the package name, the function name, and the code of the minimal example. Inspect the data and copy a code with the <code><a href="reference/copycat_addin.html">copycat_addin()</a></code> which runs a graphical interface to examine the data within the viewer. Pick a function and press the <em>insert code</em> button. RStudio inserts the code for you.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## load library and provide a data frame </span></span>
-<span><span class="fu">copycat</span><span class="fu">::</span><span class="fu"><a href="reference/copycat_addin.html">copycat_addin</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>CopyCat comes with a data (<code>CopyCatCode</code>) that includes code snippets from the cheat sheets of the <code>ggplot2</code>, <code>tidyr</code>, and more packages from the <code>tidyverse</code>. The data include the package name, the function name, and the code of the minimal example.</p>
+<p>Copy a code snippet with the <code><a href="reference/copycat_addin.html">copycat_addin()</a></code> which runs a graphical interface. Pick a function and press the <em>insert code</em> button. RStudio inserts the code for you. The gif shows how the RStudio addin works.</p>
 <p><img src="reference/figures/addin_animated.gif" width="90%" style="display: block; margin: auto;"></p>
-<p>So, you do not have to use the addin. Let’s say you cannot remember how <code>pivot_longer</code> from the <code>tidyr</code> package works. Just search for the corresponding code snippet via the <code><a href="reference/copycat.html">copycat()</a></code> function. It look up the code snippet and saves the returned code to your clipboard. To inspect the code that is actually returned, the <code><a href="reference/copycat_code.html">copycat_code()</a></code> function might be handy.</p>
+</div>
+<div class="section level2">
+<h2 id="get-help-from-chatgtp">Get help from ChatGTP<a class="anchor" aria-label="anchor" href="#get-help-from-chatgtp"></a>
+</h2>
+<p>The package has a built-interface to get help from ChatGTP. To connect with ChatGTP, go to <a href="https://openai.com/" class="external-link uri">openai</a>, create an account and generate API keys. Next create an object called (<code>gtp_api</code>) for your API key or use the <code>keyring</code> package to save the key savely.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#SET API Key as gtp_api</span></span>
+<span><span class="va">gtp_api</span> <span class="op">&lt;-</span> <span class="st">"your-key"</span></span>
+<span><span class="co">#Or store it with keyring</span></span>
+<span><span class="fu">keyring</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/keyring/man/key_get.html" class="external-link">key_set</a></span><span class="op">(</span><span class="st">"gtp_api"</span><span class="op">)</span></span></code></pre></div>
+<p>After your API key is set, you can sent your questions via the <code><a href="reference/ask_gpt.html">ask_gpt()</a></code> funciton. I primed ChatGTP to be your R tutor. Thus, ChatGTP will returns solution with R and returns them via your console. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edgar-treischl/CopyCat" class="external-link">copycat</a></span><span class="op">)</span></span>
-<span><span class="co"># copycat("pivot_longer") saves the returned code to the clipboard</span></span>
-<span><span class="co">#"🐱 copied that!"</span></span>
-<span><span class="co"># copycat_code() let you inspect what the function returned </span></span>
-<span><span class="fu"><a href="reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "🐈 Your code: pivot_longer(table4a, cols = 2:3, names_to =\"year\",\r\n             values_to = \"cases\")"</span></span></code></pre></div>
-<p>Overall, CopyCat has three different code sources. First, CopyCat comes with data from the cheat sheets. Of course, you can use your own code snippets as well. Second, CopyCat can also fetch and copy code for you that lives on Github. Ultimately, CopyCat searches also within the R help files and vignettes for code that illustrates how a function works. See the vignette for further examples how to use CopyCat with Github, help or vignette files.</p>
+<code class="sourceCode R"><span><span class="co">#Ask GPT for help</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edgar-treischl/CopyCat" class="external-link">copycat</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_gpt.html">ask_gpt</a></span><span class="op">(</span>message <span class="op">=</span> <span class="st">"How do I estimate a robust regression?"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Estimating a robust regression in R and RStudio is a relatively straightforward process. To demonstrate, we will use the mtcars data set.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; First, we will load the data set into RStudio.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; data(mtcars)</span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Next, we will create a robust regression model using the lmrob() function from the robustbase package.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; library(robustbase)</span></span>
+<span><span class="co">#&gt; model &lt;- lmrob(mpg ~ wt + cyl, data = mtcars)</span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Finally, we will print the summary of the model.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; summary(model)</span></span>
+<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The output of the summary() function will provide us with the estimated coefficients, standard errors, t-values, and p-values for the model.</span></span></code></pre></div>
+<p>Consider the help files to adjust the text <code>model</code>, the number of maximal tokens (<code>maxtoken</code>), the temperature (<code>tempvalue</code>) and further ChatGTP paramters. Moreover, there is no need to remember the function and options. Just use the AskGTP addin as the next illustration shows. It’s a small interface to send message to Chat GTP.</p>
+<p><img src="reference/figures/gtp_addin.png" width="60%" style="display: block; margin: auto;"></p>
+<p>As outlined, I started to build CopyCat as a personal package. It provides more features but some of its features are still experimental stage. For example, use the <code><a href="reference/copycat_random.html">copycat_random()</a></code> in your start up to explore functions from packages that have been installed on your computer. It randomly picks a function example that is installed on your computer.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Get the code example of a random function from an installed package</span></span>
+<span><span class="fu"><a href="reference/copycat_random.html">copycat_random</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Package and function of the day: concaveman::concaveman </span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://joelgombin.github.io/concaveman/" class="external-link">concaveman</a></span><span class="op">)</span></span>
+<span><span class="co">#concaveman: A very fast 2D concave hull algorithm.</span></span>
+<span><span class="co">#Examples:</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
+<span><span class="va">polygons</span> <span class="op">&lt;-</span> <span class="fu">concaveman</span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">points</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">polygons</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/unnamed-chunk-9-1.png" width="100%"></p>
+<p>Inspect the <em>Get started</em> vignette for more information.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
