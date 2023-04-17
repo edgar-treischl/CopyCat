@@ -93,6 +93,7 @@ copycat_runhelp <- function(pkg, fn) {
       return(x)
     }else {
       cli::cli_h1(start)
+      #cat(x)
       rstudioapi::sendToConsole(x,
                                 execute = TRUE,
                                 echo = TRUE,
@@ -121,7 +122,6 @@ copycat_random <- function() {
   p <- df$package
   f <- df$fun
   copycat_runhelp(pkg = p, fn = f)
-
 
 }
 
