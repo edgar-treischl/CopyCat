@@ -110,28 +110,31 @@
 <span><span class="fu"><a href="reference/ask_gpt.html">ask_gpt</a></span><span class="op">(</span>message <span class="op">=</span> <span class="st">"How do I estimate a robust regression?"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Estimating a robust regression in R and RStudio is a relatively straightforward process. To demonstrate, we will use the mtcars data set.</span></span>
+<span><span class="co">#&gt; To estimate a robust regression in R and RStudio, you can use the robustbase package. This package provides functions for robust statistics, including robust regression. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; First, we will load the data set into RStudio.</span></span>
+<span><span class="co">#&gt; For example, using the mtcars data set, you can use the rlm() function to fit a robust regression model. The following code shows how to fit a robust regression model with mpg as the response variable and wt and hp as the predictor variables:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ```</span></span>
-<span><span class="co">#&gt; data(mtcars)</span></span>
-<span><span class="co">#&gt; ```</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Next, we will create a robust regression model using the lmrob() function from the robustbase package.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ```</span></span>
 <span><span class="co">#&gt; library(robustbase)</span></span>
-<span><span class="co">#&gt; model &lt;- lmrob(mpg ~ wt + cyl, data = mtcars)</span></span>
-<span><span class="co">#&gt; ```</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Finally, we will print the summary of the model.</span></span>
+<span><span class="co">#&gt; # Fit a robust regression model</span></span>
+<span><span class="co">#&gt; model &lt;- rlm(mpg ~ wt + hp, data = mtcars)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ```</span></span>
+<span><span class="co">#&gt; # Print the model summary</span></span>
 <span><span class="co">#&gt; summary(model)</span></span>
-<span><span class="co">#&gt; ```</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The output of the summary() function will provide us with the estimated coefficients, standard errors, t-values, and p-values for the model.</span></span></code></pre></div>
+<span><span class="co">#&gt; The output of the summary() function will show the estimated coefficients, standard errors, and other model statistics. </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; You can also use the iris data set to fit a robust regression model. The following code shows how to fit a robust regression model with Sepal.Length as the response variable and Sepal.Width and Petal.Length as the predictor variables:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; library(robustbase)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Fit a robust regression model</span></span>
+<span><span class="co">#&gt; model &lt;- rlm(Sepal.Length ~ Sepal.Width + Petal.Length, data = iris)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Print the model summary</span></span>
+<span><span class="co">#&gt; summary(model)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Again, the output of the summary() function will show the estimated coefficients, standard errors, and other model statistics.</span></span></code></pre></div>
 <p>Consider the help files to adjust the text <code>model</code>, the number of maximal tokens (<code>maxtoken</code>), the temperature (<code>tempvalue</code>) and further ChatGTP paramters. Moreover, there is no need to remember the function and options. Just use the AskGTP addin as the next illustration shows. It’s a small interface to send message to Chat GTP.</p>
 <p><img src="reference/figures/gtp_addin.png" width="60%" style="display: block; margin: auto;"></p>
 <p>As outlined, I started to build CopyCat as a personal package. It provides more features but some of its features are still experimental stage. For example, use the <code><a href="reference/copycat_random.html">copycat_random()</a></code> in your start up to explore functions from packages that have been installed on your computer. It randomly picks a function example that is installed on your computer.</p>
