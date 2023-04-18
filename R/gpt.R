@@ -59,7 +59,7 @@ ask_gpt <- function(message,
   )
 
   chatGPT_answer <- httr::content(response)$choices[[1]]$text
-  #clipr::write_clip(chatGPT_answer)
+  clipr::write_clip(chatGPT_answer)
   cat(chatGPT_answer)
 
 }

@@ -63,28 +63,31 @@ library(copycat)
 ask_gpt(message = "How do I estimate a robust regression?")
 #> 
 #> 
-#> Estimating a robust regression in R and RStudio is a relatively straightforward process. To demonstrate, we will use the mtcars data set.
+#> To estimate a robust regression in R and RStudio, you can use the robustbase package. This package provides functions for robust statistics, including robust regression. 
 #> 
-#> First, we will load the data set into RStudio.
+#> For example, using the mtcars data set, you can use the rlm() function to fit a robust regression model. The following code shows how to fit a robust regression model with mpg as the response variable and wt and hp as the predictor variables:
 #> 
-#> ```
-#> data(mtcars)
-#> ```
-#> 
-#> Next, we will create a robust regression model using the lmrob() function from the robustbase package.
-#> 
-#> ```
 #> library(robustbase)
-#> model <- lmrob(mpg ~ wt + cyl, data = mtcars)
-#> ```
 #> 
-#> Finally, we will print the summary of the model.
+#> # Fit a robust regression model
+#> model <- rlm(mpg ~ wt + hp, data = mtcars)
 #> 
-#> ```
+#> # Print the model summary
 #> summary(model)
-#> ```
 #> 
-#> The output of the summary() function will provide us with the estimated coefficients, standard errors, t-values, and p-values for the model.
+#> The output of the summary() function will show the estimated coefficients, standard errors, and other model statistics. 
+#> 
+#> You can also use the iris data set to fit a robust regression model. The following code shows how to fit a robust regression model with Sepal.Length as the response variable and Sepal.Width and Petal.Length as the predictor variables:
+#> 
+#> library(robustbase)
+#> 
+#> # Fit a robust regression model
+#> model <- rlm(Sepal.Length ~ Sepal.Width + Petal.Length, data = iris)
+#> 
+#> # Print the model summary
+#> summary(model)
+#> 
+#> Again, the output of the summary() function will show the estimated coefficients, standard errors, and other model statistics.
 ```
 
 Consider the help files to adjust the text `model`, the number of
