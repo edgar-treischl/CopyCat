@@ -4,21 +4,28 @@
 \alias{ask_gpt}
 \title{ASK ChatGPT for some R help}
 \usage{
-ask_gpt(message, model = "text-davinci-003", maxtoken = 300, tempvalue = 0)
+ask_gpt(
+  message,
+  model = "text-davinci-003",
+  maxtoken = 300,
+  tempvalue = 0,
+  return = "text"
+)
 }
 \arguments{
-\item{message}{The prompt for GTP}
+\item{message}{The prompt for ChatGPT}
 
-\item{model}{The GTP model}
+\item{model}{The ChatGPT model}
 
 \item{maxtoken}{Maximal numbers and tokens}
 
 \item{tempvalue}{The temperature}
+
+\item{return}{Returns answer as text via the console (default) or raw as a character vector}
 }
 \value{
 A character vector.
 }
 \description{
-The function `ask_gpt` sends message to GTP; shows the results in the console, and copies
-the result to your clipboard
+The function `ask_gpt` sends message to ChatGPT and shows the results via the console
 }

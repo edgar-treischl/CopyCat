@@ -65,13 +65,13 @@ After your API key is set, you can sent your questions via the `ask_gpt()` funct
 ```{r}
 #Ask GPT for help
 library(copycat)
-ask_gpt(message = "How do I estimate a robust regression?")
+ask_gpt(message = "Show me the code to estimate a robust regression")
 ```
 
 
-Consider the help files to adjust the text `model`, the number of maximal tokens (`maxtoken`), the temperature (`tempvalue`) and further ChatGPT parameters. Moreover, there is no need to remember the function and options. Just use the AskGPT addin as the next illustration shows. It's a small interface to send messages to ChatGPT.
+Consider the help files to adjust the text `model`, the number of maximal tokens (`maxtoken`), the temperature (`tempvalue`) and further ChatGPT parameters. Moreover, there is no need to remember the function and options. Just use the AskGPT addin as the next illustration shows. It's an interface to send messages to ChatGPT.
 
-```{r, out.width='60%', echo=FALSE, fig.align='center'}
+```{r, out.width='80%', echo=FALSE, fig.align='center'}
 knitr::include_graphics('man/figures/gtp_addin.png')
 ```
 

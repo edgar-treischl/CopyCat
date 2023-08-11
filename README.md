@@ -59,40 +59,30 @@ will return a solution with R and via the console. For example:
 ``` r
 #Ask GPT for help
 library(copycat)
-ask_gpt(message = "How do I estimate a robust regression?")
+ask_gpt(message = "Show me the code to estimate a robust regression")
 #> 
 #> 
-#> Estimating a robust regression in R and RStudio is a relatively straightforward process. To demonstrate, we will use the mtcars data set.
-#> 
-#> First, we will load the data set into RStudio.
-#> 
-#> ```
+#> # Load the mtcars data
 #> data(mtcars)
-#> ```
 #> 
-#> Next, we will create a robust regression model using the lmrob() function from the robustbase package.
-#> 
-#> ```
+#> # Fit a robust regression model
 #> library(robustbase)
-#> model <- lmrob(mpg ~ wt + cyl, data = mtcars)
-#> ```
+#> model <- rlm(mpg ~ wt + cyl, data = mtcars)
 #> 
-#> Finally, we will print the summary of the model.
-#> 
-#> ```
+#> # View the model summary
 #> summary(model)
-#> ```
 #> 
-#> The output of the summary() function will provide us with the estimated coefficients, standard errors, t-values, and p-values for the model.
+#> # Plot the model
+#> plot(model)
 ```
 
 Consider the help files to adjust the text `model`, the number of
 maximal tokens (`maxtoken`), the temperature (`tempvalue`) and further
 ChatGPT parameters. Moreover, there is no need to remember the function
 and options. Just use the AskGPT addin as the next illustration shows.
-It’s a small interface to send messages to ChatGPT.
+It’s an interface to send messages to ChatGPT.
 
-<img src="man/figures/gtp_addin.png" width="60%" style="display: block; margin: auto;" />
+<img src="man/figures/gtp_addin.png" width="80%" style="display: block; margin: auto;" />
 
 As outlined, I started to build CopyCat as a personal package. It
 provides more features but some of its features are still experimental
