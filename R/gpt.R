@@ -60,7 +60,8 @@ ask_gpt <- function(message,
 
   chatGPT_answer <- httr::content(response)$choices[[1]]$text
   #clipr::write_clip(chatGPT_answer)
-  cat(chatGPT_answer)
+  #cat(chatGPT_answer)
+  return(chatGPT_answer)
 
 }
 
@@ -74,10 +75,13 @@ utils::globalVariables(c("gtp_api"))
 #'
 #' @return A character vector.
 #' @export
+#'
+
 
 askgpt_addin <- function() {
 
   ui <- miniUI::miniPage(
+    waiter::use_waitress(),
     tags$head(
       tags$style(HTML("
       .gadget-title{
@@ -113,24 +117,44 @@ askgpt_addin <- function() {
     miniUI::gadgetTitleBar("CopyCat goes AI"),
     miniUI::miniContentPanel(
       h4("AskGTP a question:"),
-      selectInput("model", label = p("Select Model"),
-                  choices = list("text-davinci-003" = "text-davinci-003", "ada" = "text-ada-001", "curie" = "text-curie-001", "babbage" = "text-babbage-001"),
-                  selected = "davinci"),
       textInput("caption", "Your question", placeholder = NULL, width = '100%'),
       actionButton("write", "Go!", class = "btn-success"),
+      actionButton("copy", "Copy", class = "btn-fail"),
       verbatimTextOutput("preview")
     )
   )
 
   server <- function(input, output, session) {
 
+
+
     #write code
     observeEvent(input$write, {
+
       caption <- input$caption
-      m <- input$model
-      x <- copycat::ask_gpt(caption, model = m)
+      x <- copycat::ask_gpt(caption)
+      observeEvent(input$copy, {
+        clipr::write_clip(x)
+      })
+      waitress <- waiter::Waitress$new("#preview")
+      output$preview <- renderText({
+        for(i in 1:10){
+          waitress$inc(10) # increase by 10%
+          Sys.sleep(.3)
+        }
+        waitress$close() # hide when done
+        return(x)
+
+      }
+
+      )
+
 
     })
+
+
+    #DONE
+
 
 
     #DONE
