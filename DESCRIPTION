@@ -29,7 +29,8 @@ Imports:
     stringi,
     stringr,
     tidyr,
-    tools
+    tools,
+    waiter
 Depends: 
     R (>= 3.2.0)
 Suggests: 

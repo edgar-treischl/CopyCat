@@ -1,12 +1,12 @@
 #' ASK ChatGPT for some R help
 #'
-#' @description The function `ask_gpt` sends message to GTP; shows the results in the console, and copies
-#' the result to your clipboard
+#' @description The function `ask_gpt` sends message to ChatGPT and shows the results via the console
 #'
-#' @param message The prompt for GTP
-#' @param model The GTP model
+#' @param message The prompt for ChatGPT
+#' @param model The ChatGPT model
 #' @param maxtoken Maximal numbers and tokens
 #' @param tempvalue The temperature
+#' @param return Returns answer as text via the console (default) or raw as a character vector
 #' @return A character vector.
 #' @export
 #'
@@ -14,7 +14,8 @@
 ask_gpt <- function(message,
                     model = "text-davinci-003",
                     maxtoken = 300,
-                    tempvalue = 0) {
+                    tempvalue = 0,
+                    return = "text") {
 
   key <- try(keyring::key_get(service = "gtp_api"), silent = TRUE)
 
@@ -33,6 +34,7 @@ ask_gpt <- function(message,
   gtp_api <- keyring::key_get(service = "gtp_api")
 
   prompt_engine <- c("User will ask you questions about the R programming language. If possible, answer questions with R code examples and provide one example with implemented data sets such as the mtcars data.")
+
 
   message2 <- paste(message, prompt_engine)
 
@@ -59,9 +61,12 @@ ask_gpt <- function(message,
   )
 
   chatGPT_answer <- httr::content(response)$choices[[1]]$text
-  clipr::write_clip(chatGPT_answer)
+  #clipr::write_clip(chatGPT_answer)
+  #cat(chatGPT_answer)
+  if (return == "raw") {
+    return(chatGPT_answer)
+  }
   cat(chatGPT_answer)
-
 }
 
 utils::globalVariables(c("gtp_api"))
@@ -74,10 +79,13 @@ utils::globalVariables(c("gtp_api"))
 #'
 #' @return A character vector.
 #' @export
+#'
+
 
 askgpt_addin <- function() {
 
   ui <- miniUI::miniPage(
+    waiter::use_waitress(),
     tags$head(
       tags$style(HTML("
       .gadget-title{
@@ -110,25 +118,40 @@ askgpt_addin <- function() {
         background-color: #f4511e;
       }"))
     ),
-    miniUI::gadgetTitleBar("CopyCat goes AI"),
+    miniUI::gadgetTitleBar("CopyCat goes ChatGPT"),
     miniUI::miniContentPanel(
-      h4("AskGTP a question:"),
-      selectInput("model", label = p("Select Model"),
-                  choices = list("text-davinci-003" = "text-davinci-003", "ada" = "text-ada-001", "curie" = "text-curie-001", "babbage" = "text-babbage-001"),
-                  selected = "davinci"),
-      textInput("caption", "Your question", placeholder = NULL, width = '100%'),
-      actionButton("write", "Go!", class = "btn-success"),
+      textInput("caption", "Your question:", placeholder = NULL, width = '100%'),
+      actionButton("write", "Send", class = "btn-primary"),
+      actionButton("copy", "Copy answer", class = "btn-fail"),
       verbatimTextOutput("preview")
     )
   )
 
   server <- function(input, output, session) {
 
+
+
     #write code
     observeEvent(input$write, {
+
       caption <- input$caption
-      m <- input$model
-      x <- copycat::ask_gpt(caption, model = m)
+      x <- copycat::ask_gpt(caption, return = "raw")
+      observeEvent(input$copy, {
+        clipr::write_clip(x)
+      })
+      waitress <- waiter::Waitress$new("#preview")
+      output$preview <- renderText({
+        for(i in 1:10){
+          waitress$inc(10) # increase by 10%
+          Sys.sleep(.3)
+        }
+        waitress$close() # hide when done
+        return(x)
+
+      }
+
+      )
+
 
     })
 

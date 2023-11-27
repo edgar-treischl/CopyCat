@@ -49,9 +49,9 @@ Copy a code snippet with the `copycat_addin()` which runs a graphical interface.
 knitr::include_graphics('man/figures/addin_animated.gif')
 ```
 
-## Get help from ChatGTP
+## Get help from ChatGPT
 
-The package has a built-interface to get help from ChatGTP. To connect with ChatGTP, go to [openai](https://openai.com/){.uri}, create an account and generate an API key. Next create an object called (`gtp_api`) for your API key or use the `keyring` package to save the key savely.
+The package has a built-interface to get help from ChatGPT. To connect with ChatGPT, go to [openai](https://openai.com/){.uri}, create an account and generate an API key. Next create an object called (`gtp_api`) for your API key or use the `keyring` package to save the key savely.
 
 ```{r, eval=FALSE}
 #SET API Key as gtp_api
@@ -60,22 +60,22 @@ gtp_api <- "your-key"
 keyring::key_set("gtp_api")
 ```
 
-After your API key is set, you can sent your questions via the `ask_gpt()` funciton. I primed ChatGTP to be your R tutor. Thus, ChatGTP will returns solution with R and returns them via your console. For example:
+After your API key is set, you can sent your questions via the `ask_gpt()` function. I primed ChatGPT to be your R tutor. Thus, ChatGPT will return a solution with R and via the console. For example:
 
 ```{r}
 #Ask GPT for help
 library(copycat)
-ask_gpt(message = "How do I estimate a robust regression?")
+ask_gpt(message = "Show me the code to estimate a robust regression")
 ```
 
 
-Consider the help files to adjust the text `model`, the number of maximal tokens (`maxtoken`), the temperature (`tempvalue`) and further ChatGTP paramters. Moreover, there is no need to remember the function and options. Just use the AskGTP addin as the next illustration shows. It's a small interface to send message to Chat GTP.
+Consider the help files to adjust the text `model`, the number of maximal tokens (`maxtoken`), the temperature (`tempvalue`) and further ChatGPT parameters. Moreover, there is no need to remember the function and options. Just use the AskGPT addin as the next illustration shows. It's an interface to send messages to ChatGPT.
 
-```{r, out.width='60%', echo=FALSE, fig.align='center'}
+```{r, out.width='80%', echo=FALSE, fig.align='center'}
 knitr::include_graphics('man/figures/gtp_addin.png')
 ```
 
-As outlined, I started to build CopyCat as a personal package. It provides more features but some of its features are still experimental stage. For example, use the `copycat_random()` in your start up to explore functions from packages that have been installed on your computer. It randomly picks a function example that is installed on your computer.
+As outlined, I started to build CopyCat as a personal package. It provides more features but some of its features are still experimental stage. For example, use the `copycat_random()` in your start up to explore functions from packages that have been installed on your computer. It randomly picks a example function that is installed on your computer.
 
 ```{r, eval=FALSE}
 #Get the code example of a random function from an installed package
