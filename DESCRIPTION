@@ -18,6 +18,7 @@ Imports:
     dplyr,
     fs,
     httr,
+    httr2,
     keyring,
     magrittr,
     methods,
