@@ -39,12 +39,11 @@ CopyCatCode %>%
 
 Let's say you cannot remember how `pivot_longer` from the `tidyr` package works. Just search for the corresponding code snippet via the `copycat()` function, it searches the code snippet and copies the returned code to your clipboard. To see which code is returned, use the corresponding `copycat_code()` function.
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
 # copycat("pivot_longer") saves the returned code to the clipboad
-#>[1] "🐈 Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = #>'income', values_to = 'count')"
+#>[1] "Your code: relig_income %>% tidyr::pivot_longer(!religion, names_to = #>'income', values_to = 'count')"
 # copycat_code() let us inspect what the function returned 
 copycat_code("pivot_longer")
-
 ```
 
 Since the code is based on implemented data -- as all examples listed in CopyCat -- you can see how a function works by pasting it into your console. Alternatively, set the `run` option to `TRUE` and `copycat()` sends the code to your console.
@@ -65,7 +64,7 @@ Of course, the minimal examples will only run if the package has been loaded and
 ```{r, eval=FALSE}
 #search for a package name, copies the load and loads the library
 copycat_package("pivot_longer")
-#>[1] [1] "🐈 Mission accomplished, loaded and copied library: tidyr"
+#>[1] [1] "Mission accomplished, loaded and copied library: tidyr"
 ```
 
 If you add typos by accident, if you are not sure whether the function is written in small or large caps, you might be lucky and a similar match is found in the data.
@@ -79,7 +78,7 @@ Unfortunately, this only works if a match is found at all.
 
 ```{r, eval=F}
 copycat("bivatasa")
-#>[1] "💩 Sooorry, I've got no idea what you are looking for!"
+#>[1] "Sooorry, I've got no idea what you are looking for!"
 ```
 
 ## Github
@@ -103,7 +102,7 @@ The `copycat_git()` function copies the code of a script to your clipboard.
 
 ```{r, eval=FALSE}
 copycat_git("datasaurus")
-#>[1] "🐈 Mission accomplished!"
+#>[1] "Mission accomplished!"
 ```
 
 And `opycat_gitplot("datasaurus")` sends the code to your console.
@@ -135,7 +134,6 @@ And `copycat_vignette()` copies the script.
 
 ```{r, eval=FALSE}
 copycat_vignette("tidyr", "pivot")
-#> "😎 copied that!"
 ```
 
 To copy smaller code chunks to your clipboard is fine. Help files and vignettes are much longer. Therefore, we may want to create a new file and paste the code into a new file. The `copycat_helpscript()`create a new R script and copies the examples of the help file into that script, while `copycat_vigscript()` does the same with the code from the vignette.
