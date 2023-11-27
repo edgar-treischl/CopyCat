@@ -1,6 +1,6 @@
 ---
 title: "copycat"
-output: rmarkdown::html_vignette
+output: html_vignette
 vignette: >
   %\VignetteIndexEntry{copycat}
   %\VignetteEngine{knitr::rmarkdown}
