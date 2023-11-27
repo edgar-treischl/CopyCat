@@ -32,7 +32,7 @@ ask_gpt <- function(message,
 
   gtp_api <- keyring::key_get(service = "gtp_api")
 
-  prompt_engine <- c("You are an R and RStudio expert. Show with implemented data sets such as mtcars or iris how R works.")
+  prompt_engine <- c("User will ask you questions about the R programming language. If possible, answer questions with R code examples and provide one example with implemented data sets such as the mtcars data.")
 
   message2 <- paste(message, prompt_engine)
 
