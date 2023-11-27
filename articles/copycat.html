@@ -129,10 +129,9 @@ code is returned, use the corresponding <code><a href="../reference/copycat_code
 function.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># copycat("pivot_longer") saves the returned code to the clipboad</span></span>
-<span><span class="co">#&gt;[1] "🐈 Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = #&gt;'income', values_to = 'count')"</span></span>
+<span><span class="co">#&gt;[1] "Your code: relig_income %&gt;% tidyr::pivot_longer(!religion, names_to = #&gt;'income', values_to = 'count')"</span></span>
 <span><span class="co"># copycat_code() let us inspect what the function returned </span></span>
-<span><span class="fu"><a href="../reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "🐈 Your code: pivot_longer(table4a, cols = 2:3, names_to =\"year\",\r\n             values_to = \"cases\")"</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/copycat_code.html">copycat_code</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span></span></code></pre></div>
 <p>Since the code is based on implemented data – as all examples listed
 in CopyCat – you can see how a function works by pasting it into your
 console. Alternatively, set the <code>run</code> option to
@@ -168,7 +167,7 @@ as well.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#search for a package name, copies the load and loads the library</span></span>
 <span><span class="fu"><a href="../reference/copycat_package.html">copycat_package</a></span><span class="op">(</span><span class="st">"pivot_longer"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;[1] [1] "🐈 Mission accomplished, loaded and copied library: tidyr"</span></span></code></pre></div>
+<span><span class="co">#&gt;[1] [1] "Mission accomplished, loaded and copied library: tidyr"</span></span></code></pre></div>
 <p>If you add typos by accident, if you are not sure whether the
 function is written in small or large caps, you might be lucky and a
 similar match is found in the data.</p>
@@ -180,7 +179,7 @@ similar match is found in the data.</p>
 <p>Unfortunately, this only works if a match is found at all.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/copycat.html">copycat</a></span><span class="op">(</span><span class="st">"bivatasa"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;[1] "💩 Sooorry, I've got no idea what you are looking for!"</span></span></code></pre></div>
+<span><span class="co">#&gt;[1] "Sooorry, I've got no idea what you are looking for!"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="github">Github<a class="anchor" aria-label="anchor" href="#github"></a>
@@ -207,7 +206,7 @@ the repository.</p>
 to your clipboard.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/copycat_git.html">copycat_git</a></span><span class="op">(</span><span class="st">"datasaurus"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;[1] "🐈 Mission accomplished!"</span></span></code></pre></div>
+<span><span class="co">#&gt;[1] "Mission accomplished!"</span></span></code></pre></div>
 <p>And <code>opycat_gitplot("datasaurus")</code> sends the code to your
 console.</p>
 </div>
@@ -277,8 +276,7 @@ a package.</p>
 <span><span class="co">#&gt; [5] "rectangle.R"   "tidy-data.R"</span></span></code></pre></div>
 <p>And <code><a href="../reference/copycat_vignette.html">copycat_vignette()</a></code> copies the script.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/copycat_vignette.html">copycat_vignette</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"pivot"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; "😎 copied that!"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/copycat_vignette.html">copycat_vignette</a></span><span class="op">(</span><span class="st">"tidyr"</span>, <span class="st">"pivot"</span><span class="op">)</span></span></code></pre></div>
 <p>To copy smaller code chunks to your clipboard is fine. Help files and
 vignettes are much longer. Therefore, we may want to create a new file
 and paste the code into a new file. The
