@@ -3,6 +3,7 @@ title: "copycat"
 output: html_vignette
 vignette: >
   %\VignetteIndexEntry{copycat}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
