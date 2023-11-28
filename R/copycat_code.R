@@ -23,13 +23,11 @@ copycat_code <- function(x, data = CopyCatCode) {
 
   searchstring <- x
   result <- agrep(searchstring, CopyCatCode$fct)
-  shit_emoji <- "\U0001F4A9"
-  cat_emoji <- "\U0001F408"
 
   if (length(code) == 1L) {
-    print(paste(cat_emoji, "Your code:", code))
+    print(paste("Your code:", code))
   } else if (length(code) == 0L & length(result) == 0L ) {
-    paste(shit_emoji, "I have no idea what you are looking for!")
+    paste("I have no idea what you are looking for!")
   } else {
     print(paste("Did you mean", CopyCatCode$fct[result], "from the", CopyCatCode$package[result], "package?"))
 
@@ -63,16 +61,14 @@ copycat_package <- function(x, data = CopyCatCode) {
 
   searchstring <- x
   result <- agrep(searchstring, CopyCatCode$fct)
-  shit_emoji <- "\U0001F4A9"
-  cat_emoji <- "\U0001F408"
   print_lib <- paste("library(",package,")", sep = "")
 
   if (length(package) == 1L) {
-    print(paste(cat_emoji, "Mission accomplished, loaded and copied library:", package))
+    print(paste("Mission accomplished, loaded and copied library:", package))
     rstudioapi::sendToConsole(print_lib, execute = TRUE, echo = FALSE, focus = TRUE)
     clipr::write_clip(print_lib)
   } else if (length(package) == 0L & length(result) == 0L ) {
-    paste(shit_emoji, "Sooorry, I have no idea what you are looking for!")
+    paste("Sooorry, I have no idea what you are looking for!")
   } else {
     print(paste("Did you mean", CopyCatCode$fct[result], "from the", CopyCatCode$package[result],
                 "package?"))

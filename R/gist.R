@@ -1,4 +1,4 @@
-#' Explore Gist files
+#' Explore GitHub Gist files
 #'
 #' @description The function `copycat_gistfiles()` returns GitHub Gists.
 #' @return Data frame with file names.
@@ -37,11 +37,11 @@ copycat_gistfiles <- function() {
 }
 
 
-#' Explore Gist files
+#' Copy Github Gist files
 #'
 #' @description The function `copycat_gist()` copies GitHub Gists.
-#' @param filename The file name (see copycat_gistfiles)
-#' @return Message if code was copied.
+#' @param filename The file name from one of your GitHub account (see copycat_gistfiles)
+#' @return Message if successful.
 #' @export
 #'
 

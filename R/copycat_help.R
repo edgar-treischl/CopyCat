@@ -88,10 +88,11 @@ copycat_help <- function(pkg, fn) {
   f <- function(x) capture.output(convertor(x))
   text <- f(rdb)
   pattern <- "_\bE_\bx_\ba_\bm_\bp_\bl_\be_\bs:"
-  empty_cells <- ""
+  #empty_cells <- " "
   replace <- "#Extracted examples:"
   detect <- stringr::str_detect(text, pattern)
-  empty <- stringr::str_detect(text, empty_cells)
+  #empty <- stringr::str_detect(text, empty_cells)
+  empty <- grepl("", text)
 
   df <- data.frame(x = text,
                    y = detect,
@@ -100,11 +101,11 @@ copycat_help <- function(pkg, fn) {
   df$x <- stringr::str_replace(df$x, pattern, replace)
   df <- subset(df, z == TRUE)
   pos_data <- which(df$y == TRUE)
-  cat_emoji <- "\U0001F431"
+
   if (length(pos_data) == 0) {
     print("Nothing there to copy.")
   } else {
-    print(paste(cat_emoji, "help copied!"))
+    print(paste("help copied!"))
     lx <- length(df$x)
     x <- df$x[pos_data:lx]
     clipr::write_clip(x)
