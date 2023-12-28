@@ -1,11 +1,18 @@
 #' Explore GitHub Gist files
 #'
-#' @description The function `copycat_gistfiles()` returns GitHub Gists.
+#' @description The function `copycat_gistfiles()` returns a list with GitHub Gists.
 #' @return Data frame with file names.
 #' @export
 #'
 
 copycat_gistfiles <- function() {
+  key <- try(keyring::key_get(service = "github_api"), silent = TRUE)
+  test <- exists("key")
+
+  if (test == FALSE) {
+    cli::cli_abort("Create a Github Token and store it as a key named github_api with keyring::key_set() function.")
+  }
+
   authoriz <- paste0("Bearer ", keyring::key_get("github_api"))
 
 
@@ -47,10 +54,11 @@ copycat_gistfiles <- function() {
 
 copycat_gist <- function(filename) {
 
-  test <- exists("github_api")
+  key <- try(keyring::key_get(service = "github_api"), silent = TRUE)
+  test <- exists("key")
 
-  if (test) {
-    cli::cli_abort("Create a API key from https://openai.com and assign it as api_key.")
+  if (test == FALSE) {
+    cli::cli_abort("Create a Github Token and store it as a key named github_api with keyring::key_set() function.")
   }
 
   authoriz <- paste0("Bearer ", keyring::key_get("github_api"))
