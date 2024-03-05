@@ -29,16 +29,21 @@ copycat_gistfiles <- function() {
   resp_json <- resp |> httr2::resp_body_json()
 
   answer <- c()
+  ids <- c()
 
   for (i in 1:length(resp_json)) {
 
     file <- resp_json[[i]]$files
     filename <- file[[1]][1]
     filename <- as.character(filename)
+    id <- resp_json[[i]]$id
+    id <- id[[1]][1]
     answer <- append(answer, filename)
+    ids <- append(ids, id)
   }
 
-  df <- as.data.frame(answer) |> dplyr::rename("file" = answer)
+  df <- data.frame(answer, ids) |> dplyr::rename("file" = answer,
+                                               "id" = ids)
   return(df)
 
 }
@@ -101,6 +106,92 @@ copycat_gist <- function(filename) {
   cli::cli_alert_success("Copied {filename} from your GitHub account.")
 
 }
+
+#' Create Github Gist files
+#'
+#' @description The function `copycat_gists.create()` creates GitHub Gists.
+#' @param name The name of the Gist file.
+#' @param code String with the code of the Gist.
+#' @return Message if successful.
+#' @export
+#'
+
+copycat_gists.create = function (name, code) {
+  #name <- "snippets_usethis.R"
+  #code <-  "usethis::edit_rstudio_snippets()"
+
+  authoriz <- paste0("Bearer ", keyring::key_get("github_api"))
+  name_file <- name
+
+  # mylist_works <- list(
+  #   description = "des",
+  #   files = list("test2.R" = list(content = "usethis::edit_rstudio_snippets()")),
+  #   public = TRUE
+  # )
+
+  #code_list <-list(content = code)
+
+  mylist <- list(
+    description = "des",
+    files = list(name = list(content = code)),
+    public = TRUE
+  )
+
+  names(mylist$files)
+  names(mylist$files) <- name
+
+
+  req <- httr2::request("https://api.github.com/gists") |>
+    #httr2::req_url_path("/post")|>
+    httr2::req_headers("Accept" = "application/vnd.github+json",
+                       "Authorization" = authoriz,
+                       "X-GitHub-Api-Version" = "2022-11-28") |>
+    httr2::req_body_json(mylist)
+
+  resp <- httr2::req_perform(req)
+
+  x <- copycat::copycat_gistfiles()
+
+  if (name %in% x$file) {
+    usethis::ui_done("Insert {name}")
+  }
+
+
+}
+
+
+#' Delete Github Gist files
+#'
+#' @description The function `copycat_gists.del()` deletes GitHub Gists.
+#' @param id The id of the Gist file (see copycat_gistfiles).
+#' @return Message if successful.
+#' @export
+#'
+copycat_gists.del = function (id) {
+  authoriz <- paste0("Bearer ", keyring::key_get("github_api"))
+
+  gitid <- id
+  gurl <- "https://api.github.com/gists/"
+
+  del_url <- paste0(gurl, gitid)
+
+  req <- httr2::request(del_url) |>
+    httr2::req_headers("Accept" = "application/vnd.github+json",
+                       "Authorization" = authoriz,
+                       "X-GitHub-Api-Version" = "2022-11-28") |>
+    httr2::req_method("DELETE")
+
+
+  resp <- httr2::req_perform(req)
+
+  if (resp$status_code == 204) {
+    usethis::ui_done("Deleted id: {id}")
+  }else {
+    cli::cli_abort("Argh, something went wrong.")
+  }
+
+}
+
 
 utils::globalVariables(c("n"))
 

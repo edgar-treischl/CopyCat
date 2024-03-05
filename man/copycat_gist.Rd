@@ -2,15 +2,15 @@
 % Please edit documentation in R/gist.R
 \name{copycat_gist}
 \alias{copycat_gist}
-\title{Explore Gist files}
+\title{Copy Github Gist files}
 \usage{
 copycat_gist(filename)
 }
 \arguments{
-\item{filename}{The file name (see copycat_gistfiles)}
+\item{filename}{The file name from one of your GitHub account (see copycat_gistfiles)}
 }
 \value{
-Message if code was copied.
+Message if successful.
 }
 \description{
 The function `copycat_gist()` copies GitHub Gists.

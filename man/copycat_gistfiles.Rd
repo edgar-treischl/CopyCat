@@ -2,7 +2,7 @@
 % Please edit documentation in R/gist.R
 \name{copycat_gistfiles}
 \alias{copycat_gistfiles}
-\title{Explore Gist files}
+\title{Explore GitHub Gist files}
 \usage{
 copycat_gistfiles()
 }
@@ -10,5 +10,5 @@ copycat_gistfiles()
 Data frame with file names.
 }
 \description{
-The function `copycat_gistfiles()` returns GitHub Gists.
+The function `copycat_gistfiles()` returns a list with GitHub Gists.
 }

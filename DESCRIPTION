@@ -32,6 +32,7 @@ Imports:
     stringr,
     tidyr,
     tools,
+    usethis,
     waiter
 Depends: 
     R (>= 3.2.0)
