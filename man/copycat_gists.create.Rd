@@ -4,12 +4,14 @@
 \alias{copycat_gists.create}
 \title{Create Github Gist files}
 \usage{
-copycat_gists.create(name, code)
+copycat_gists.create(name, code, description)
 }
 \arguments{
 \item{name}{The name of the Gist file.}
 
 \item{code}{String with the code of the Gist.}
+
+\item{description}{Code description.}
 }
 \value{
 Message if successful.

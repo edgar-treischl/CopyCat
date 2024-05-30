@@ -112,11 +112,12 @@ copycat_gist <- function(filename) {
 #' @description The function `copycat_gists.create()` creates GitHub Gists.
 #' @param name The name of the Gist file.
 #' @param code String with the code of the Gist.
+#' @param description Code description.
 #' @return Message if successful.
 #' @export
 #'
 
-copycat_gists.create = function (name, code) {
+copycat_gists.create = function (name, code, description) {
   #name <- "snippets_usethis.R"
   #code <-  "usethis::edit_rstudio_snippets()"
 
@@ -132,7 +133,7 @@ copycat_gists.create = function (name, code) {
   #code_list <-list(content = code)
 
   mylist <- list(
-    description = "des",
+    description = description,
     files = list(name = list(content = code)),
     public = TRUE
   )
